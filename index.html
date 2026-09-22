@@ -89,7 +89,7 @@ async function gerarPDF(){
   const margem=14, largura=182;
   
   try{
-    const logoData=await imagemParaDataURL('logo.jpg');
+    const logoSrc=document.querySelector('.topo>img').getAttribute('src');const logoData=await imagemParaDataURL(logoSrc);
     doc.addImage(logoData,'JPEG',margem,10,52,24,undefined,'FAST');
   }catch(e){}
 
