@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Orçamento - Viveiro Guarapuava</title>
 <style>
-:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
+:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}.cliente-acoes{margin-top:12px}.nuvem-info{font-size:12px;color:#356043;align-self:center}.busca-cliente{display:flex;gap:8px;margin-bottom:14px}.busca-cliente input{flex:1;padding:10px;border:1px solid #9fb29f;border-radius:8px;font-size:14px}.cliente-card{border:1px solid #d7e2d7;border-radius:10px;padding:11px 12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.cliente-card strong{color:var(--escuro)}.cliente-meta{font-size:12px;color:#666;margin-top:3px}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
 @media print{
 @page{size:A4 portrait;margin:10mm 10mm 12mm}
 html,body{background:#fff!important;font-size:12px!important}
@@ -32,6 +32,7 @@ html,body{background:#fff!important;font-size:12px!important}
 .obs textarea{min-height:42px!important}
 .assinatura{grid-template-columns:1fr 1fr!important;gap:18px!important}.rodape{position:absolute!important;left:0!important;right:0!important;bottom:3mm!important;margin:0!important;font-size:8px!important;line-height:1.25!important;text-align:center!important}
 }</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
 </head><body>
@@ -74,6 +75,11 @@ html,body{background:#fff!important;font-size:12px!important}
 <div class="campo"><label>Validade do orçamento</label><input id="validade" value="7 dias"></div>
 </div>
 </div>
+<div class="acoes cliente-acoes">
+  <button class="btn cinza" onclick="abrirClientes()">Clientes cadastrados</button>
+  <button class="btn verde" onclick="salvarClienteAtual()">Salvar / atualizar cliente</button>
+  <span id="statusCliente" class="nuvem-info"></span>
+</div>
 <div class="separador"></div><h3>Itens do orçamento</h3><div id="itens"></div><button class="btn verde addbtn" onclick="addItem()">+ Adicionar item</button>
 <div class="totais"><div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><div><span>Desconto (R$)</span><input id="desconto" type="number" min="0" step="0.01" value="0" oninput="calcular()" style="width:120px"></div><div class="total"><span>TOTAL</span><span id="total">R$ 0,00</span></div></div>
 <div class="separador separador-obs"></div><div class="campo obs"><label>Observações / condições</label><textarea id="obs"></textarea></div>
@@ -83,6 +89,7 @@ html,body{background:#fff!important;font-size:12px!important}
 <button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button>
 <button class="btn verde" onclick="enviarEmail()">Enviar PDF por e-mail</button><button class="btn verde" onclick="enviarWhatsAppPDF()">Enviar PDF por WhatsApp</button>
 <button class="btn cinza" onclick="novo()">Novo orçamento</button>
+<button class="btn cinza" onclick="sairSistema()">Sair</button>
 <span id="statusSalvo" class="status-salvo"></span>
 </div>
 <div id="modalOrcamentos" class="modal" onclick="fecharModalFundo(event)">
@@ -96,164 +103,342 @@ html,body{background:#fff!important;font-size:12px!important}
       <button class="btn cinza btn-peq" onclick="document.getElementById('arquivoBackup').click()">Importar backup</button>
       <input id="arquivoBackup" class="arquivo-importar" type="file" accept=".json,application/json" onchange="importarBackup(event)">
     </div>
-    <p class="nota-local">Os orçamentos ficam salvos neste navegador/aparelho. Use o backup para levar os dados para outro aparelho ou se proteger contra limpeza dos dados do navegador.</p>
+    <p class="nota-local">Os orçamentos desta versão ficam no Supabase e são compartilhados entre os usuários autorizados. Uma cópia local é mantida apenas como contingência.</p>
     <div id="listaOrcamentos" class="lista-orcamentos"></div>
+  </div>
+</div>
+<div id="modalClientes" class="modal" onclick="fecharModalClientesFundo(event)">
+  <div class="modal-card">
+    <div class="modal-topo">
+      <h2>Clientes cadastrados</h2>
+      <button class="fechar-modal" onclick="fecharClientes()" aria-label="Fechar">×</button>
+    </div>
+    <div class="busca-cliente">
+      <input id="buscaCliente" placeholder="Pesquisar por nome, CPF/CNPJ, telefone ou cidade" oninput="filtrarClientes()">
+      <button class="btn verde btn-peq" onclick="carregarClientes()">Atualizar</button>
+    </div>
+    <div id="listaClientes" class="lista-orcamentos"></div>
   </div>
 </div>
 <div class="assinatura"><div>Assinatura do cliente</div><div>Responsável / Viveiro Guarapuava</div></div><div class="separador separador-rodape"></div><div class="rodape"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial, Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982</div></div>
 <script>
 const moeda=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});let seq=0;
-const LOGIN_USER='tonho', LOGIN_PASS='plante', LOGIN_SESSION_KEY='viveiro_guarapuava_logado';
-function verificarLogin(){
-  if(sessionStorage.getItem(LOGIN_SESSION_KEY)==='1'){
-    document.getElementById('loginTela').classList.add('login-oculto');
-    return;
-  }
-  document.getElementById('loginTela').classList.remove('login-oculto');
-  setTimeout(()=>document.getElementById('loginUsuario').focus(),50);
-}
-function fazerLogin(){
-  const u=document.getElementById('loginUsuario').value.trim();
-  const s=document.getElementById('loginSenha').value;
-  const erro=document.getElementById('loginErro');
-  if(u===LOGIN_USER && s===LOGIN_PASS){
-    sessionStorage.setItem(LOGIN_SESSION_KEY,'1');
-    erro.textContent='';
-    document.getElementById('loginTela').classList.add('login-oculto');
-    document.getElementById('loginSenha').value='';
-  }else{
-    erro.textContent='Usuário ou senha inválidos.';
-    document.getElementById('loginSenha').value='';
-    document.getElementById('loginSenha').focus();
-  }
-}
+const SUPABASE_URL='https://fgcpsyiooqqbatkiopzu.supabase.co';
+const SUPABASE_KEY='sb_publishable_P_ir5ROOXg2Io2d49katGg_xrs398XL';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const STORAGE_KEY='viveiro_guarapuava_orcamentos_supabase_cache_v1';
 
-const STORAGE_KEY='viveiro_guarapuava_orcamentos_v1';
 let orcamentoAtualId=null;
+let clienteAtualId=null;
+let clientesCarregados=[];
 
-function lerOrcamentos(){
-  try{
-    const dados=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
-    return Array.isArray(dados)?dados:[];
-  }catch(e){return []}
-}
-function gravarOrcamentos(lista){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(lista));
-}
 function valor(id){return document.getElementById(id).value||''}
-function coletarItens(){
-  return [...document.querySelectorAll('.linha-item')].map(r=>{
-    const i=r.querySelectorAll('input');
-    return {qtd:i[0].value,descricao:i[1].value,valor:i[2].value};
-  });
-}
-function coletarOrcamento(){
-  const agora=new Date().toISOString();
-  return {
-    id:orcamentoAtualId||((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('orc-'+Date.now()+'-'+Math.random().toString(16).slice(2))),
-    numero:document.getElementById('numero').textContent,
-    data:document.getElementById('data').textContent,
-    cliente:valor('cliente'),telefone:valor('telefone'),endereco:valor('endereco'),
-    cidade:valor('cidade'),estado:valor('estado'),cep:valor('cep'),email:valor('email'),
-    documento:valor('documento'),inscricao:valor('inscricao'),condicoes:valor('condicoes'),
-    validade:valor('validade'),desconto:valor('desconto'),obs:valor('obs'),
-    itens:coletarItens(),
-    total:document.getElementById('total').textContent,
-    atualizadoEm:agora
-  };
-}
+function setCampo(id,v){document.getElementById(id).value=v??''}
+function escapar(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function mostrarStatus(msg){
   const s=document.getElementById('statusSalvo');if(!s)return;
   s.textContent=msg;clearTimeout(mostrarStatus.timer);
-  mostrarStatus.timer=setTimeout(()=>s.textContent='',3500);
+  mostrarStatus.timer=setTimeout(()=>s.textContent='',4500);
 }
-function salvarOrcamento(){
-  calcular();
-  const orc=coletarOrcamento();
-  let lista=lerOrcamentos();
+function mostrarStatusCliente(msg){
+  const s=document.getElementById('statusCliente');if(!s)return;
+  s.textContent=msg;clearTimeout(mostrarStatusCliente.timer);
+  mostrarStatusCliente.timer=setTimeout(()=>s.textContent='',4500);
+}
+function salvarCache(lista){
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(lista||[]))}catch(e){}
+}
+function lerCache(){
+  try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}
+}
+function atualizarCacheOrcamento(orc){
+  const lista=lerCache();
   const idx=lista.findIndex(x=>x.id===orc.id);
-  if(idx>=0){
-    orc.criadoEm=lista[idx].criadoEm||lista[idx].atualizadoEm||orc.atualizadoEm;
-    lista[idx]=orc;
-  }else{
-    orc.criadoEm=orc.atualizadoEm;
-    lista.unshift(orc);
+  if(idx>=0)lista[idx]=orc;else lista.unshift(orc);
+  salvarCache(lista.slice(0,300));
+}
+async function verificarLogin(){
+  const {data}=await sb.auth.getSession();
+  const logado=!!data.session;
+  document.getElementById('loginTela').classList.toggle('login-oculto',logado);
+  if(!logado)setTimeout(()=>document.getElementById('loginUsuario').focus(),50);
+}
+async function fazerLogin(){
+  const u=document.getElementById('loginUsuario').value.trim();
+  const senha=document.getElementById('loginSenha').value;
+  const erro=document.getElementById('loginErro');
+  erro.textContent='Entrando...';
+  const email=u.includes('@')?u:(u+'@viveiro.local');
+  const {error}=await sb.auth.signInWithPassword({email,password:senha});
+  if(error){
+    erro.textContent='Usuário ou senha inválidos.';
+    document.getElementById('loginSenha').value='';
+    document.getElementById('loginSenha').focus();
+    return;
   }
-  gravarOrcamentos(lista);
-  orcamentoAtualId=orc.id;
-  mostrarStatus('Orçamento salvo');
-  if(document.getElementById('modalOrcamentos').classList.contains('aberto')) renderizarListaOrcamentos();
+  erro.textContent='';
+  document.getElementById('loginTela').classList.add('login-oculto');
+  document.getElementById('loginSenha').value='';
+  mostrarStatus('Conectado ao banco online');
 }
-function escapar(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function renderizarListaOrcamentos(){
+async function sairSistema(){
+  await sb.auth.signOut();
+  fecharListaOrcamentos();fecharClientes();
+  document.getElementById('loginTela').classList.remove('login-oculto');
+  document.getElementById('loginSenha').value='';
+  document.getElementById('loginUsuario').focus();
+}
+async function exigirLogin(){
+  const {data}=await sb.auth.getSession();
+  if(data.session)return true;
+  await verificarLogin();
+  alert('Sua sessão expirou. Entre novamente.');
+  return false;
+}
+function dadosClienteFormulario(){
+  return {
+    cliente:valor('cliente').trim(),
+    telefone:valor('telefone').trim(),
+    endereco:valor('endereco').trim(),
+    cidade:valor('cidade').trim(),
+    estado:valor('estado').trim().toUpperCase().slice(0,2),
+    cep:valor('cep').trim(),
+    email:valor('email').trim(),
+    documento:valor('documento').trim(),
+    inscricao_estadual:valor('inscricao').trim(),
+    condicoes:valor('condicoes').trim()
+  };
+}
+async function salvarClienteAtual(silencioso=false){
+  if(!(await exigirLogin()))return null;
+  const p=dadosClienteFormulario();
+  if(!p.cliente){
+    if(!silencioso)alert('Informe o nome do cliente.');
+    return null;
+  }
+  try{
+    let id=clienteAtualId;
+    if(!id && p.documento){
+      const {data}=await sb.from('clientes').select('id').eq('documento',p.documento).limit(1);
+      if(data&&data.length)id=data[0].id;
+    }
+    if(!id && p.email){
+      const {data}=await sb.from('clientes').select('id').eq('email',p.email).limit(1);
+      if(data&&data.length)id=data[0].id;
+    }
+    let resp;
+    if(id){
+      resp=await sb.from('clientes').update(p).eq('id',id).select().single();
+    }else{
+      resp=await sb.from('clientes').insert(p).select().single();
+    }
+    if(resp.error)throw resp.error;
+    clienteAtualId=resp.data.id;
+    if(!silencioso)mostrarStatusCliente('Cliente salvo no banco');
+    return resp.data;
+  }catch(e){
+    console.error(e);
+    if(!silencioso)alert('Não foi possível salvar o cliente: '+(e.message||e));
+    return null;
+  }
+}
+async function carregarClientes(){
+  if(!(await exigirLogin()))return;
+  const box=document.getElementById('listaClientes');
+  box.innerHTML='<div class="vazio">Carregando clientes...</div>';
+  const {data,error}=await sb.from('clientes').select('*').order('cliente',{ascending:true}).limit(500);
+  if(error){box.innerHTML='<div class="vazio">Erro ao carregar clientes.</div>';return}
+  clientesCarregados=data||[];
+  filtrarClientes();
+}
+function filtrarClientes(){
+  const termo=(document.getElementById('buscaCliente')?.value||'').trim().toLowerCase();
+  const lista=clientesCarregados.filter(c=>{
+    if(!termo)return true;
+    return [c.cliente,c.documento,c.telefone,c.cidade,c.email].some(v=>String(v||'').toLowerCase().includes(termo));
+  });
+  const box=document.getElementById('listaClientes');
+  if(!lista.length){box.innerHTML='<div class="vazio">Nenhum cliente encontrado.</div>';return}
+  box.innerHTML=lista.map(c=>`<div class="cliente-card">
+    <div><strong>${escapar(c.cliente)}</strong>
+      <div class="cliente-meta">${escapar(c.documento||'')}${c.telefone?' • '+escapar(c.telefone):''}${c.cidade?' • '+escapar(c.cidade):''}</div>
+    </div>
+    <button class="btn verde btn-peq" onclick="selecionarCliente('${c.id}')">Selecionar</button>
+  </div>`).join('');
+}
+async function abrirClientes(){
+  document.getElementById('modalClientes').classList.add('aberto');
+  document.body.style.overflow='hidden';
+  document.getElementById('buscaCliente').value='';
+  await carregarClientes();
+  setTimeout(()=>document.getElementById('buscaCliente').focus(),50);
+}
+function fecharClientes(){
+  document.getElementById('modalClientes').classList.remove('aberto');
+  document.body.style.overflow='';
+}
+function fecharModalClientesFundo(e){if(e.target.id==='modalClientes')fecharClientes()}
+function selecionarCliente(id){
+  const c=clientesCarregados.find(x=>x.id===id);if(!c)return;
+  clienteAtualId=c.id;
+  setCampo('cliente',c.cliente);setCampo('telefone',c.telefone);setCampo('endereco',c.endereco);
+  setCampo('cidade',c.cidade);setCampo('estado',c.estado);setCampo('cep',c.cep);setCampo('email',c.email);
+  setCampo('documento',c.documento);setCampo('inscricao',c.inscricao_estadual);setCampo('condicoes',c.condicoes);
+  fecharClientes();mostrarStatusCliente('Cliente selecionado');
+}
+function coletarItens(){
+  return [...document.querySelectorAll('.linha-item')].map((r,idx)=>{
+    const i=r.querySelectorAll('input');
+    return {ordem:idx+1,qtd:Number(i[0].value||0),descricao:(i[1].value||'').trim(),valor:Number(i[2].value||0)};
+  }).filter(x=>x.descricao||x.valor>0);
+}
+function dataSqlDaTela(){
+  const s=document.getElementById('data').textContent||'';
+  const m=s.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return m?`${m[3]}-${m[2]}-${m[1]}`:new Date().toISOString().slice(0,10);
+}
+function dataTelaDeSql(s){
+  if(!s)return '';
+  const m=String(s).slice(0,10).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return m?`${m[3]}/${m[2]}/${m[1]}`:s;
+}
+async function salvarOrcamento(){
+  if(!(await exigirLogin()))return;
+  calcular();mostrarStatus('Salvando no banco...');
+  try{
+    const cli=await salvarClienteAtual(true);
+    if(valor('cliente').trim() && !cli && !clienteAtualId)throw new Error('Não foi possível salvar/vincular o cliente.');
+    const snapshot=dadosClienteFormulario();
+    const payload={
+      numero:document.getElementById('numero').textContent,
+      cliente_id:clienteAtualId,
+      data_orcamento:dataSqlDaTela(),
+      validade:valor('validade'),
+      condicoes:valor('condicoes'),
+      desconto:Number(valor('desconto')||0),
+      observacoes:valor('obs'),
+      status:'ABERTO',
+      cliente_dados:snapshot
+    };
+    let resp;
+    if(orcamentoAtualId){
+      resp=await sb.from('orcamentos').update(payload).eq('id',orcamentoAtualId).select().single();
+    }else{
+      resp=await sb.from('orcamentos').insert(payload).select().single();
+    }
+    if(resp.error)throw resp.error;
+    orcamentoAtualId=resp.data.id;
+
+    const del=await sb.from('orcamento_itens').delete().eq('orcamento_id',orcamentoAtualId);
+    if(del.error)throw del.error;
+    const itens=coletarItens();
+    if(itens.length){
+      const rows=itens.map(x=>({
+        orcamento_id:orcamentoAtualId,ordem:x.ordem,quantidade:x.qtd,descricao:x.descricao,valor_unitario:x.valor
+      }));
+      const ins=await sb.from('orcamento_itens').insert(rows);
+      if(ins.error)throw ins.error;
+    }
+
+    atualizarCacheOrcamento({
+      id:orcamentoAtualId,numero:payload.numero,data:document.getElementById('data').textContent,
+      cliente:snapshot.cliente,total:document.getElementById('total').textContent,atualizadoEm:new Date().toISOString()
+    });
+    mostrarStatus('Orçamento salvo no Supabase');
+    if(document.getElementById('modalOrcamentos').classList.contains('aberto'))await renderizarListaOrcamentos();
+  }catch(e){
+    console.error(e);
+    mostrarStatus('Erro ao salvar');
+    alert('Não foi possível salvar o orçamento no banco: '+(e.message||e));
+  }
+}
+async function renderizarListaOrcamentos(){
   const box=document.getElementById('listaOrcamentos');
-  const lista=lerOrcamentos().sort((a,b)=>String(b.atualizadoEm||'').localeCompare(String(a.atualizadoEm||'')));
+  box.innerHTML='<div class="vazio">Carregando orçamentos...</div>';
+  if(!(await exigirLogin()))return;
+  const {data,error}=await sb.from('vw_orcamentos_totais')
+    .select('id,numero,cliente,data_orcamento,subtotal,desconto,total,alterado_em')
+    .order('alterado_em',{ascending:false}).limit(300);
+  if(error){
+    console.error(error);
+    const cache=lerCache();
+    if(!cache.length){box.innerHTML='<div class="vazio">Não foi possível carregar os orçamentos.</div>';return}
+    box.innerHTML=cache.map(o=>`<div class="orc-card">
+      <div class="orc-info"><strong>${escapar(o.numero||'Sem número')} — ${escapar(o.cliente||'Cliente não informado')}</strong>
+      <div class="orc-meta">Data: ${escapar(o.data||'')} • Total: ${escapar(o.total||'')}</div><div class="orc-meta">Cópia local de contingência</div></div>
+      <div class="orc-botoes"><button class="btn verde btn-peq" disabled>Sem conexão</button></div></div>`).join('');
+    return;
+  }
+  const lista=data||[];
+  salvarCache(lista.map(o=>({id:o.id,numero:o.numero,cliente:o.cliente,data:dataTelaDeSql(o.data_orcamento),total:moeda(o.total),atualizadoEm:o.alterado_em})));
   if(!lista.length){box.innerHTML='<div class="vazio">Nenhum orçamento salvo ainda.</div>';return}
-  box.innerHTML=lista.map(o=>`
-    <div class="orc-card">
-      <div class="orc-info">
-        <strong>${escapar(o.numero||'Sem número')} — ${escapar(o.cliente||'Cliente não informado')}</strong>
-        <div class="orc-meta">Data: ${escapar(o.data||'')} &nbsp; • &nbsp; Total: ${escapar(o.total||'R$ 0,00')}</div>
-        <div class="orc-meta">Última alteração: ${o.atualizadoEm?new Date(o.atualizadoEm).toLocaleString('pt-BR'):''}</div>
-      </div>
-      <div class="orc-botoes">
-        <button class="btn verde btn-peq" onclick="abrirOrcamento('${o.id}')">Abrir / editar</button>
-        <button class="btn vermelho btn-peq" onclick="excluirOrcamento('${o.id}')">Excluir</button>
-      </div>
-    </div>`).join('');
+  box.innerHTML=lista.map(o=>`<div class="orc-card">
+    <div class="orc-info">
+      <strong>${escapar(o.numero||'Sem número')} — ${escapar(o.cliente||'Cliente não informado')}</strong>
+      <div class="orc-meta">Data: ${escapar(dataTelaDeSql(o.data_orcamento))} • Total: ${escapar(moeda(o.total))}</div>
+      <div class="orc-meta">Última alteração: ${o.alterado_em?new Date(o.alterado_em).toLocaleString('pt-BR'):''}</div>
+    </div>
+    <div class="orc-botoes">
+      <button class="btn verde btn-peq" onclick="abrirOrcamento('${o.id}')">Abrir / editar</button>
+      <button class="btn vermelho btn-peq" onclick="excluirOrcamento('${o.id}')">Excluir</button>
+    </div>
+  </div>`).join('');
 }
-function abrirListaOrcamentos(){
-  renderizarListaOrcamentos();
+async function abrirListaOrcamentos(){
   document.getElementById('modalOrcamentos').classList.add('aberto');
   document.body.style.overflow='hidden';
+  await renderizarListaOrcamentos();
 }
 function fecharListaOrcamentos(){
   document.getElementById('modalOrcamentos').classList.remove('aberto');
   document.body.style.overflow='';
 }
 function fecharModalFundo(e){if(e.target.id==='modalOrcamentos')fecharListaOrcamentos()}
-function setCampo(id,v){document.getElementById(id).value=v??''}
-function abrirOrcamento(id){
-  const o=lerOrcamentos().find(x=>x.id===id);if(!o)return;
-  orcamentoAtualId=o.id;
+async function abrirOrcamento(id){
+  if(!(await exigirLogin()))return;
+  mostrarStatus('Abrindo orçamento...');
+  const [{data:o,error:e1},{data:itens,error:e2}]=await Promise.all([
+    sb.from('orcamentos').select('*').eq('id',id).single(),
+    sb.from('orcamento_itens').select('*').eq('orcamento_id',id).order('ordem',{ascending:true})
+  ]);
+  if(e1||e2){alert('Não foi possível abrir o orçamento.');return}
+  orcamentoAtualId=o.id;clienteAtualId=o.cliente_id||null;
   document.getElementById('numero').textContent=o.numero||'';
-  document.getElementById('data').textContent=o.data||'';
-  ['cliente','telefone','endereco','cidade','estado','cep','email','documento','inscricao','condicoes','validade','desconto','obs'].forEach(k=>setCampo(k,o[k]));
-  document.getElementById('itens').innerHTML='';
-  seq=0;
-  (Array.isArray(o.itens)&&o.itens.length?o.itens:[{qtd:1,descricao:'',valor:''}]).forEach(i=>addItem(i.qtd,i.descricao,i.valor));
-  calcular();
-  fecharListaOrcamentos();
-  mostrarStatus('Orçamento aberto para edição');
+  document.getElementById('data').textContent=dataTelaDeSql(o.data_orcamento);
+  const d=o.cliente_dados||{};
+  setCampo('cliente',d.cliente);setCampo('telefone',d.telefone);setCampo('endereco',d.endereco);
+  setCampo('cidade',d.cidade);setCampo('estado',d.estado);setCampo('cep',d.cep);setCampo('email',d.email);
+  setCampo('documento',d.documento);setCampo('inscricao',d.inscricao_estadual);setCampo('condicoes',o.condicoes??d.condicoes);
+  setCampo('validade',o.validade||'7 dias');setCampo('desconto',o.desconto||0);setCampo('obs',o.observacoes||'');
+  document.getElementById('itens').innerHTML='';seq=0;
+  (itens&&itens.length?itens:[{quantidade:1,descricao:'',valor_unitario:''}]).forEach(i=>addItem(i.quantidade,i.descricao,i.valor_unitario));
+  calcular();fecharListaOrcamentos();mostrarStatus('Orçamento aberto para edição');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function excluirOrcamento(id){
-  const lista=lerOrcamentos(), o=lista.find(x=>x.id===id);
-  if(!o||!confirm('Excluir o orçamento '+(o.numero||'')+' de '+(o.cliente||'cliente não informado')+'?'))return;
-  gravarOrcamentos(lista.filter(x=>x.id!==id));
+async function excluirOrcamento(id){
+  if(!(await exigirLogin()))return;
+  if(!confirm('Excluir este orçamento do banco compartilhado?'))return;
+  const {error}=await sb.from('orcamentos').delete().eq('id',id);
+  if(error){alert('Não foi possível excluir o orçamento.');return}
   if(orcamentoAtualId===id)orcamentoAtualId=null;
-  renderizarListaOrcamentos();
+  await renderizarListaOrcamentos();
 }
-function exportarBackup(){
-  const conteudo={versao:1,exportadoEm:new Date().toISOString(),orcamentos:lerOrcamentos()};
+async function exportarBackup(){
+  if(!(await exigirLogin()))return;
+  const [{data:orc,error:e1},{data:itens,error:e2},{data:clientes,error:e3}]=await Promise.all([
+    sb.from('orcamentos').select('*').order('alterado_em',{ascending:false}),
+    sb.from('orcamento_itens').select('*'),
+    sb.from('clientes').select('*').order('cliente',{ascending:true})
+  ]);
+  if(e1||e2||e3){alert('Não foi possível gerar o backup online.');return}
+  const conteudo={versao:2,origem:'supabase',exportadoEm:new Date().toISOString(),clientes,orcamentos:orc,itens};
   const blob=new Blob([JSON.stringify(conteudo,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='backup-orcamentos-viveiro-guarapuava-'+new Date().toISOString().slice(0,10)+'.json';
+  a.href=url;a.download='backup-viveiro-guarapuava-'+new Date().toISOString().slice(0,10)+'.json';
   document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 }
 async function importarBackup(event){
-  const arq=event.target.files&&event.target.files[0];if(!arq)return;
-  try{
-    const obj=JSON.parse(await arq.text());
-    const novos=Array.isArray(obj)?obj:(Array.isArray(obj.orcamentos)?obj.orcamentos:null);
-    if(!novos)throw new Error('Formato inválido');
-    const atual=lerOrcamentos();
-    const mapa=new Map(atual.map(x=>[x.id,x]));
-    novos.forEach(x=>{if(x&&x.id)mapa.set(x.id,x)});
-    gravarOrcamentos([...mapa.values()]);
-    renderizarListaOrcamentos();
-    alert('Backup importado com sucesso.');
-  }catch(e){alert('Não foi possível importar este backup.')}
+  alert('A importação para o banco online ficará desativada nesta fase para evitar duplicar dados. O backup continua disponível para segurança.');
   event.target.value='';
 }
 
@@ -417,9 +602,9 @@ async function enviarWhatsAppPDF(){
   setTimeout(()=>{window.open('https://wa.me/?text='+texto,'_blank')},500);
 }
 
-function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();mostrarStatus('Novo orçamento')}
-function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')fecharListaOrcamentos()});
+function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;clienteAtualId=null;cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();mostrarStatus('Novo orçamento')}
+function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')+String(d.getSeconds()).padStart(2,'0')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){fecharListaOrcamentos();fecharClientes()}});
 verificarLogin();
 iniciar();addItem();addItem();
 </script></body></html>
