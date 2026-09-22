@@ -407,10 +407,12 @@ async function salvarOrcamento(){
   try{
     const cli=await salvarClienteAtual(true);
     if(valor('cliente').trim() && !cli && !clienteAtualId)throw new Error('Não foi possível salvar/vincular o cliente.');
+    const clienteIdSalvo=(cli&&cli.id)?cli.id:clienteAtualId;
+    clienteAtualId=clienteIdSalvo||null;
     const snapshot=dadosClienteFormulario();
     const payload={
       numero:document.getElementById('numero').textContent,
-      cliente_id:clienteAtualId,
+      cliente_id:clienteIdSalvo,
       data_orcamento:dataSqlDaTela(),
       validade:valor('validade'),
       condicoes:valor('condicoes'),
@@ -501,30 +503,100 @@ function fecharModalFundo(e){if(e.target.id==='modalOrcamentos')fecharListaOrcam
 async function abrirOrcamento(id){
   if(!(await exigirLogin()))return;
   mostrarStatus('Abrindo orçamento...');
+
   const [{data:o,error:e1},{data:itens,error:e2}]=await Promise.all([
-    sb.from('orcamentos').select('*').eq('id',id).single(),
+    sb.from('orcamentos').select('*, clientes(*)').eq('id',id).single(),
     sb.from('orcamento_itens').select('*').eq('orcamento_id',id).order('ordem',{ascending:true})
   ]);
-  if(e1||e2){alert('Não foi possível abrir o orçamento.');return}
-  orcamentoAtualId=o.id;clienteAtualId=o.cliente_id||null;
+
+  if(e1||e2){
+    console.error(e1||e2);
+    alert('Não foi possível abrir o orçamento.');
+    return;
+  }
+
+  orcamentoAtualId=o.id;
+
   document.getElementById('numero').textContent=o.numero||'';
   document.getElementById('data').textContent=dataTelaDeSql(o.data_orcamento);
-  const d=o.cliente_dados||{};
-  let cli={};
-  if(o.cliente_id){
-    const {data:clienteBanco}=await sb.from('clientes').select('*').eq('id',o.cliente_id).maybeSingle();
-    if(clienteBanco)cli=clienteBanco;
+
+  let d=o.cliente_dados||{};
+  if(typeof d==='string'){
+    try{d=JSON.parse(d)}catch(e){d={}}
   }
-  const pv=(snap,banco)=>{const a=d[snap];return (a!==undefined&&a!==null&&String(a).trim()!=='')?a:(cli[banco||snap]??'')};
-  setCampo('cliente',pv('cliente'));setCampo('telefone',pv('telefone'));setCampo('endereco',pv('endereco'));
-  setCampo('cidade',pv('cidade'));setCampo('estado',pv('estado'));setCampo('cep',pv('cep'));setCampo('email',pv('email'));
-  setCampo('documento',pv('documento'));setCampo('inscricao',pv('inscricao_estadual','inscricao_estadual'));setCampo('condicoes',o.condicoes??pv('condicoes'));
-  setCampo('validade',o.validade||'7 dias');setCampo('desconto',o.desconto||0);setCampo('obs',o.observacoes||'');
-  document.getElementById('itens').innerHTML='';seq=0;
-  (itens&&itens.length?itens:[{quantidade:1,descricao:'',valor_unitario:''}]).forEach(i=>addItem(i.quantidade,i.descricao,i.valor_unitario));
-  calcular();await registrarHistorico(o.id,'ABERTO',{numero:o.numero,cliente:pv('cliente')});fecharListaOrcamentos();mostrarStatus('Orçamento aberto para edição');
+
+  let cli=o.clientes||null;
+
+  if(!cli && o.cliente_id){
+    const {data:clienteBanco,error:erroCliente}=await sb.from('clientes').select('*').eq('id',o.cliente_id).maybeSingle();
+    if(!erroCliente && clienteBanco)cli=clienteBanco;
+  }
+
+  // Compatibilidade com orçamentos antigos: se não houver cliente_id,
+  // tenta localizar o cliente pelo nome salvo no snapshot.
+  if(!cli && d && d.cliente){
+    const nome=String(d.cliente).trim();
+    if(nome){
+      const {data:achados}=await sb.from('clientes')
+        .select('*')
+        .ilike('cliente',nome)
+        .limit(1);
+      if(achados&&achados.length){
+        cli=achados[0];
+        clienteAtualId=cli.id;
+        // Repara o vínculo do orçamento antigo para as próximas aberturas.
+        await sb.from('orcamentos').update({cliente_id:cli.id}).eq('id',o.id);
+      }
+    }
+  }
+
+  clienteAtualId=(cli&&cli.id)?cli.id:(o.cliente_id||null);
+
+  const pv=(snap,banco)=>{
+    const chaveBanco=banco||snap;
+    const a=d?d[snap]:undefined;
+    if(a!==undefined&&a!==null&&String(a).trim()!=='')return a;
+    const b=cli?cli[chaveBanco]:undefined;
+    return b??'';
+  };
+
+  setCampo('cliente',pv('cliente'));
+  setCampo('telefone',pv('telefone'));
+  setCampo('endereco',pv('endereco'));
+  setCampo('cidade',pv('cidade'));
+  setCampo('estado',pv('estado'));
+  setCampo('cep',pv('cep'));
+  setCampo('email',pv('email'));
+  setCampo('documento',pv('documento'));
+  setCampo('inscricao',pv('inscricao_estadual','inscricao_estadual')||pv('inscricao','inscricao_estadual'));
+  setCampo('condicoes',(o.condicoes!==undefined&&o.condicoes!==null&&String(o.condicoes).trim()!=='')?o.condicoes:pv('condicoes'));
+  setCampo('validade',o.validade||'7 dias');
+  setCampo('desconto',o.desconto||0);
+  setCampo('obs',o.observacoes||'');
+
+  document.getElementById('itens').innerHTML='';
+  seq=0;
+  (itens&&itens.length?itens:[{quantidade:1,descricao:'',valor_unitario:''}])
+    .forEach(i=>addItem(i.quantidade,i.descricao,i.valor_unitario));
+
+  calcular();
+
+  await registrarHistorico(o.id,'ABERTO',{
+    numero:o.numero,
+    cliente:valor('cliente')
+  });
+
+  fecharListaOrcamentos();
+
+  if(!valor('cliente')){
+    mostrarStatus('Orçamento aberto — cliente não vinculado');
+  }else{
+    mostrarStatus('Orçamento aberto para edição');
+  }
+
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 async function excluirOrcamento(id){
   if(!(await exigirLogin()))return;
   if(!confirm('Excluir este orçamento do banco compartilhado?'))return;
