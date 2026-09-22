@@ -81,7 +81,7 @@ html,body{background:#fff!important;font-size:12px!important}
 <button class="btn verde" onclick="salvarOrcamento()">Salvar orçamento</button>
 <button class="btn cinza" onclick="abrirListaOrcamentos()">Orçamentos salvos</button>
 <button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button>
-<button class="btn verde" onclick="enviarEmail()">Enviar PDF por e-mail</button>
+<button class="btn verde" onclick="enviarEmail()">Enviar PDF por e-mail</button><button class="btn verde" onclick="enviarWhatsAppPDF()">Enviar PDF por WhatsApp</button>
 <button class="btn cinza" onclick="novo()">Novo orçamento</button>
 <span id="statusSalvo" class="status-salvo"></span>
 </div>
@@ -386,6 +386,37 @@ async function enviarEmail(){
   const mailto='mailto:'+encodeURIComponent(dest)+'?subject='+encodeURIComponent(assunto)+'&body='+encodeURIComponent('O PDF do orçamento foi baixado no aparelho. Anexe o arquivo '+nome+' a este e-mail.');
   setTimeout(()=>{location.href=mailto},500);
 }
+
+async function enviarWhatsAppPDF(){
+  const doc=await gerarPDF();if(!doc)return;
+  const nome='Orcamento-'+(numero.textContent||'Viveiro-Guarapuava')+'.pdf';
+  const blob=doc.output('blob');
+  const arquivo=new File([blob],nome,{type:'application/pdf'});
+  const mensagem='Orçamento Viveiro Guarapuava - '+numero.textContent+(cliente.value?' - '+cliente.value:'');
+
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[arquivo]})){
+    try{
+      await navigator.share({
+        title:mensagem,
+        text:mensagem,
+        files:[arquivo]
+      });
+      return;
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+  }
+
+  // Fallback: baixa o PDF e abre o WhatsApp com a mensagem.
+  // Navegadores não permitem anexar automaticamente o arquivo em wa.me.
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=nome;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+  const texto=encodeURIComponent(mensagem+'\nO PDF foi baixado no aparelho. Anexe o arquivo '+nome+' nesta conversa.');
+  setTimeout(()=>{window.open('https://wa.me/?text='+texto,'_blank')},500);
+}
+
 function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();mostrarStatus('Novo orçamento')}
 function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')fecharListaOrcamentos()});
