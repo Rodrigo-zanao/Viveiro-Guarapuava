@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orçamento - Viveiro Guarapuava</title>
+<style>
+:root{--verde:#39a23d;--escuro:#23752a;--cinza:#f4f6f4}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{display:flex;align-items:center;gap:25px;border-bottom:3px solid var(--verde);padding-bottom:18px;margin-bottom:22px}.topo img{max-width:430px;width:45%;height:auto}.topo h1{margin:0;color:var(--escuro);font-size:30px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #bbb;border-radius:7px;font-size:15px}.campo textarea{min-height:72px;resize:vertical}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:20px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}@media(max-width:750px){.grid{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block}.topo img{width:100%}}
+@media print{body{background:#fff}.wrap{box-shadow:none;margin:0;max-width:none;padding:10mm}.acoes,.addbtn,.remover{display:none!important}.campo input,.campo textarea,.linha-item input{border:0;padding:3px;background:transparent}.topo img{max-width:360px}.wrap{border-radius:0}}
+</style>
+</head><body><div class="wrap">
+<div class="topo"><img src="logo.png" alt="Viveiro Guarapuava"><div><h1>ORÇAMENTO</h1><p>Nº <span id="numero"></span><br>Data: <span id="data"></span></p></div></div>
+<div class="grid">
+<div class="campo"><label>Cliente</label><input id="cliente" placeholder="Nome do cliente"></div>
+<div class="campo"><label>E-mail</label><input id="email" type="email" placeholder="cliente@email.com"></div>
+<div class="campo"><label>Telefone</label><input id="telefone" placeholder="(00) 00000-0000"></div>
+<div class="campo"><label>Validade do orçamento</label><input id="validade" value="7 dias"></div>
+</div>
+<h3>Itens do orçamento</h3><div id="itens"></div><button class="btn verde addbtn" onclick="addItem()">+ Adicionar item</button>
+<div class="totais"><div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><div><span>Desconto (R$)</span><input id="desconto" type="number" min="0" step="0.01" value="0" oninput="calcular()" style="width:120px"></div><div class="total"><span>TOTAL</span><span id="total">R$ 0,00</span></div></div>
+<div class="campo obs"><label>Observações / condições</label><textarea id="obs" placeholder="Prazo de entrega, forma de pagamento, frete, condições comerciais..."></textarea></div>
+<div class="acoes"><button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button><button class="btn verde" onclick="enviarEmail()">Enviar por e-mail</button><button class="btn cinza" onclick="novo()">Novo orçamento</button></div>
+<div class="rodape">Viveiro Guarapuava</div></div>
+<script>
+const moeda=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});let seq=0;
+function addItem(q=1,d='',v=''){seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" placeholder="Descrição do item"><input type="number" min="0" step="0.01" value="${v}" placeholder="Valor unit." oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular()}
+function calcular(){let s=0;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input'),x=(+i[0].value||0)*(+i[2].value||0);r.querySelector('.subtotal').textContent=moeda(x);s+=x});const desc=+document.getElementById('desconto').value||0;document.getElementById('subtotal').textContent=moeda(s);document.getElementById('total').textContent=moeda(Math.max(0,s-desc))}
+function texto(){let t=`ORÇAMENTO - VIVEIRO GUARAPUAVA\nNº ${numero.textContent}\nCliente: ${cliente.value}\nTelefone: ${telefone.value}\n\nITENS:\n`;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input');t+=`${i[0].value} x ${i[1].value} - ${moeda(i[2].value)}\n`});t+=`\nTOTAL: ${total.textContent}\nValidade: ${validade.value}\n\n${obs.value}`;return t}
+function enviarEmail(){const dest=email.value||'';const assunto=encodeURIComponent(`Orçamento Viveiro Guarapuava - ${numero.textContent}`);location.href=`mailto:${dest}?subject=${assunto}&body=${encodeURIComponent(texto())}`}
+function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;cliente.value=email.value=telefone.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';iniciar();addItem()}
+function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')}
+iniciar();addItem();addItem();
+</script></body></html>
