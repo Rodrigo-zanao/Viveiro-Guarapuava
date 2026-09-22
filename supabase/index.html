@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orçamento - Viveiro Guarapuava</title>
+<style>
+:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
+@media print{
+@page{size:A4 portrait;margin:10mm 10mm 12mm}
+html,body{background:#fff!important;font-size:12px!important}
+.wrap{position:relative;box-shadow:none!important;margin:0!important;max-width:none!important;width:100%!important;min-height:274mm!important;padding:0 0 22mm!important;border-radius:0!important}
+.acoes,.addbtn,.remover,.modal,.status-salvo,.login-tela{display:none!important}
+.topo{display:grid!important;grid-template-columns:36% 64%!important;align-items:center!important;gap:6px!important;margin:0 0 10px!important;padding:8px 4px 42px!important;overflow:hidden!important;min-height:133px!important}
+.topo>img{display:block!important;width:100%!important;max-width:173px!important;height:auto!important;object-fit:contain!important;clip-path:none!important;margin-bottom:0!important}
+.dados-topo{display:grid!important;grid-template-columns:.85fr 1.35fr!important;border-left:2px solid var(--verde)!important;padding-left:10px!important;gap:8px!important;min-width:0!important}
+.dados-topo>*{min-width:0!important}.topo h1{font-size:21px!important;margin:0 0 6px!important}
+.topo p{font-size:10px!important;line-height:1.25!important;margin:2px 0!important}
+.contato-topo{font-size:9.5px!important;line-height:1.3!important;padding-top:2px!important;overflow-wrap:anywhere!important}
+.contato-topo strong{font-size:11px!important}
+.topo:before,.topo:after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;transform:translateY(7px) rotate(-.5deg)!important}.topo:before{transform:translateY(5px) rotate(.4deg)!important}.separador{display:block!important;height:6px!important;margin:8px 0 10px!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.separador:before,.separador:after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.separador-obs{margin-top:10px!important}.separador-rodape{position:absolute!important;left:0!important;right:0!important;bottom:15mm!important;margin:0!important}
+.grid{grid-template-columns:1fr 1fr!important;gap:7px 18px!important;margin-top:4px!important}
+.campo label{font-size:11px!important;margin-bottom:2px!important}
+.campo input,.campo textarea,.linha-item input{border:0!important;background:transparent!important;padding:2px!important;font-size:11px!important}.bloco-dados{border:1px solid #8fa18f!important;border-radius:10px!important;padding:10px 12px 8px!important;background:#fff!important;box-shadow:none!important}.campo input::placeholder,.campo textarea::placeholder{color:transparent!important}
+.wrap h3{font-size:13px!important;margin:10px 0 5px!important}
+.linha-item{grid-template-columns:55px 1fr 90px 100px 0!important;gap:6px!important;margin:2px 0!important;min-height:18px!important;font-size:11px!important}
+.subtotal{font-size:11px!important}
+.totais{margin:10px 0 0 auto!important;padding:8px 10px!important;max-width:310px!important}
+.totais div{margin:4px 0!important;font-size:11px!important}
+.totais input{height:20px!important;font-size:11px!important}
+.total{font-size:15px!important;padding-top:6px!important}
+.obs{margin-top:10px!important}
+.obs textarea{min-height:42px!important}
+.assinatura{grid-template-columns:1fr 1fr!important;gap:18px!important}.rodape{position:absolute!important;left:0!important;right:0!important;bottom:3mm!important;margin:0!important;font-size:8px!important;line-height:1.25!important;text-align:center!important}
+}</style>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+</head><body>
+<div id="loginTela" class="login-tela">
+  <div class="login-card">
+    <img src="../logo.jpg?v=2" alt="Viveiro Guarapuava">
+    <h2>Acesso ao sistema</h2>
+    <input id="loginUsuario" autocomplete="username" placeholder="Usuário">
+    <input id="loginSenha" type="password" autocomplete="current-password" placeholder="Senha" onkeydown="if(event.key==='Enter')fazerLogin()">
+    <button class="btn verde" onclick="fazerLogin()">Entrar</button>
+    <div id="loginErro" class="login-erro"></div>
+  </div>
+</div>
+<div class="wrap">
+<div class="topo">
+<img src="../logo.jpg?v=2" alt="Viveiro Guarapuava">
+<div class="dados-topo">
+<div><h1>ORÇAMENTO</h1><p>Nº <span id="numero"></span><br>Data: <span id="data"></span></p></div>
+<div class="contato-topo"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial<br>Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982<div class="produtor-info"><strong>Produtor Rural - José António de Assis</strong><br>CADPRO 95214791-99</div></div>
+</div></div>
+<div class="separador"></div>
+<div class="bloco-dados">
+<div class="grid grid-cliente">
+<div class="campo"><label>Cliente</label><input id="cliente"></div>
+<div class="campo"><label>Telefone</label><input id="telefone"></div>
+</div>
+<div class="grid grid-endereco" style="margin-top:10px">
+<div class="campo"><label>Endereço</label><input id="endereco"></div>
+<div class="campo"><label>Cidade</label><input id="cidade"></div>
+<div class="campo"><label>Estado</label><input id="estado" maxlength="2"></div>
+</div>
+<div class="grid grid-documentos" style="margin-top:10px">
+<div class="campo"><label>CEP</label><input id="cep"></div>
+<div class="campo"><label>E-mail</label><input id="email" type="email"></div>
+<div class="campo"><label>CNPJ / CPF</label><input id="documento"></div>
+<div class="campo"><label>Inscrição Estadual</label><input id="inscricao"></div>
+</div>
+<div class="grid" style="margin-top:10px">
+<div class="campo"><label>Condições</label><input id="condicoes"></div>
+<div class="campo"><label>Validade do orçamento</label><input id="validade" value="7 dias"></div>
+</div>
+</div>
+<div class="separador"></div><h3>Itens do orçamento</h3><div id="itens"></div><button class="btn verde addbtn" onclick="addItem()">+ Adicionar item</button>
+<div class="totais"><div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><div><span>Desconto (R$)</span><input id="desconto" type="number" min="0" step="0.01" value="0" oninput="calcular()" style="width:120px"></div><div class="total"><span>TOTAL</span><span id="total">R$ 0,00</span></div></div>
+<div class="separador separador-obs"></div><div class="campo obs"><label>Observações / condições</label><textarea id="obs"></textarea></div>
+<div class="acoes">
+<button class="btn verde" onclick="salvarOrcamento()">Salvar orçamento</button>
+<button class="btn cinza" onclick="abrirListaOrcamentos()">Orçamentos salvos</button>
+<button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button>
+<button class="btn verde" onclick="enviarEmail()">Enviar PDF por e-mail</button><button class="btn verde" onclick="enviarWhatsAppPDF()">Enviar PDF por WhatsApp</button>
+<button class="btn cinza" onclick="novo()">Novo orçamento</button>
+<span id="statusSalvo" class="status-salvo"></span>
+</div>
+<div id="modalOrcamentos" class="modal" onclick="fecharModalFundo(event)">
+  <div class="modal-card">
+    <div class="modal-topo">
+      <h2>Orçamentos salvos</h2>
+      <button class="fechar-modal" onclick="fecharListaOrcamentos()" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-acoes">
+      <button class="btn verde btn-peq" onclick="exportarBackup()">Exportar backup</button>
+      <button class="btn cinza btn-peq" onclick="document.getElementById('arquivoBackup').click()">Importar backup</button>
+      <input id="arquivoBackup" class="arquivo-importar" type="file" accept=".json,application/json" onchange="importarBackup(event)">
+    </div>
+    <p class="nota-local">Os orçamentos ficam salvos neste navegador/aparelho. Use o backup para levar os dados para outro aparelho ou se proteger contra limpeza dos dados do navegador.</p>
+    <div id="listaOrcamentos" class="lista-orcamentos"></div>
+  </div>
+</div>
+<div class="assinatura"><div>Assinatura do cliente</div><div>Responsável / Viveiro Guarapuava</div></div><div class="separador separador-rodape"></div><div class="rodape"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial, Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982</div></div>
+<script>
+const moeda=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});let seq=0;
+const LOGIN_USER='tonho', LOGIN_PASS='plante', LOGIN_SESSION_KEY='viveiro_guarapuava_logado';
+function verificarLogin(){
+  if(sessionStorage.getItem(LOGIN_SESSION_KEY)==='1'){
+    document.getElementById('loginTela').classList.add('login-oculto');
+    return;
+  }
+  document.getElementById('loginTela').classList.remove('login-oculto');
+  setTimeout(()=>document.getElementById('loginUsuario').focus(),50);
+}
+function fazerLogin(){
+  const u=document.getElementById('loginUsuario').value.trim();
+  const s=document.getElementById('loginSenha').value;
+  const erro=document.getElementById('loginErro');
+  if(u===LOGIN_USER && s===LOGIN_PASS){
+    sessionStorage.setItem(LOGIN_SESSION_KEY,'1');
+    erro.textContent='';
+    document.getElementById('loginTela').classList.add('login-oculto');
+    document.getElementById('loginSenha').value='';
+  }else{
+    erro.textContent='Usuário ou senha inválidos.';
+    document.getElementById('loginSenha').value='';
+    document.getElementById('loginSenha').focus();
+  }
+}
+
+const STORAGE_KEY='viveiro_guarapuava_orcamentos_v1';
+let orcamentoAtualId=null;
+
+function lerOrcamentos(){
+  try{
+    const dados=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+    return Array.isArray(dados)?dados:[];
+  }catch(e){return []}
+}
+function gravarOrcamentos(lista){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(lista));
+}
+function valor(id){return document.getElementById(id).value||''}
+function coletarItens(){
+  return [...document.querySelectorAll('.linha-item')].map(r=>{
+    const i=r.querySelectorAll('input');
+    return {qtd:i[0].value,descricao:i[1].value,valor:i[2].value};
+  });
+}
+function coletarOrcamento(){
+  const agora=new Date().toISOString();
+  return {
+    id:orcamentoAtualId||((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('orc-'+Date.now()+'-'+Math.random().toString(16).slice(2))),
+    numero:document.getElementById('numero').textContent,
+    data:document.getElementById('data').textContent,
+    cliente:valor('cliente'),telefone:valor('telefone'),endereco:valor('endereco'),
+    cidade:valor('cidade'),estado:valor('estado'),cep:valor('cep'),email:valor('email'),
+    documento:valor('documento'),inscricao:valor('inscricao'),condicoes:valor('condicoes'),
+    validade:valor('validade'),desconto:valor('desconto'),obs:valor('obs'),
+    itens:coletarItens(),
+    total:document.getElementById('total').textContent,
+    atualizadoEm:agora
+  };
+}
+function mostrarStatus(msg){
+  const s=document.getElementById('statusSalvo');if(!s)return;
+  s.textContent=msg;clearTimeout(mostrarStatus.timer);
+  mostrarStatus.timer=setTimeout(()=>s.textContent='',3500);
+}
+function salvarOrcamento(){
+  calcular();
+  const orc=coletarOrcamento();
+  let lista=lerOrcamentos();
+  const idx=lista.findIndex(x=>x.id===orc.id);
+  if(idx>=0){
+    orc.criadoEm=lista[idx].criadoEm||lista[idx].atualizadoEm||orc.atualizadoEm;
+    lista[idx]=orc;
+  }else{
+    orc.criadoEm=orc.atualizadoEm;
+    lista.unshift(orc);
+  }
+  gravarOrcamentos(lista);
+  orcamentoAtualId=orc.id;
+  mostrarStatus('Orçamento salvo');
+  if(document.getElementById('modalOrcamentos').classList.contains('aberto')) renderizarListaOrcamentos();
+}
+function escapar(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function renderizarListaOrcamentos(){
+  const box=document.getElementById('listaOrcamentos');
+  const lista=lerOrcamentos().sort((a,b)=>String(b.atualizadoEm||'').localeCompare(String(a.atualizadoEm||'')));
+  if(!lista.length){box.innerHTML='<div class="vazio">Nenhum orçamento salvo ainda.</div>';return}
+  box.innerHTML=lista.map(o=>`
+    <div class="orc-card">
+      <div class="orc-info">
+        <strong>${escapar(o.numero||'Sem número')} — ${escapar(o.cliente||'Cliente não informado')}</strong>
+        <div class="orc-meta">Data: ${escapar(o.data||'')} &nbsp; • &nbsp; Total: ${escapar(o.total||'R$ 0,00')}</div>
+        <div class="orc-meta">Última alteração: ${o.atualizadoEm?new Date(o.atualizadoEm).toLocaleString('pt-BR'):''}</div>
+      </div>
+      <div class="orc-botoes">
+        <button class="btn verde btn-peq" onclick="abrirOrcamento('${o.id}')">Abrir / editar</button>
+        <button class="btn vermelho btn-peq" onclick="excluirOrcamento('${o.id}')">Excluir</button>
+      </div>
+    </div>`).join('');
+}
+function abrirListaOrcamentos(){
+  renderizarListaOrcamentos();
+  document.getElementById('modalOrcamentos').classList.add('aberto');
+  document.body.style.overflow='hidden';
+}
+function fecharListaOrcamentos(){
+  document.getElementById('modalOrcamentos').classList.remove('aberto');
+  document.body.style.overflow='';
+}
+function fecharModalFundo(e){if(e.target.id==='modalOrcamentos')fecharListaOrcamentos()}
+function setCampo(id,v){document.getElementById(id).value=v??''}
+function abrirOrcamento(id){
+  const o=lerOrcamentos().find(x=>x.id===id);if(!o)return;
+  orcamentoAtualId=o.id;
+  document.getElementById('numero').textContent=o.numero||'';
+  document.getElementById('data').textContent=o.data||'';
+  ['cliente','telefone','endereco','cidade','estado','cep','email','documento','inscricao','condicoes','validade','desconto','obs'].forEach(k=>setCampo(k,o[k]));
+  document.getElementById('itens').innerHTML='';
+  seq=0;
+  (Array.isArray(o.itens)&&o.itens.length?o.itens:[{qtd:1,descricao:'',valor:''}]).forEach(i=>addItem(i.qtd,i.descricao,i.valor));
+  calcular();
+  fecharListaOrcamentos();
+  mostrarStatus('Orçamento aberto para edição');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function excluirOrcamento(id){
+  const lista=lerOrcamentos(), o=lista.find(x=>x.id===id);
+  if(!o||!confirm('Excluir o orçamento '+(o.numero||'')+' de '+(o.cliente||'cliente não informado')+'?'))return;
+  gravarOrcamentos(lista.filter(x=>x.id!==id));
+  if(orcamentoAtualId===id)orcamentoAtualId=null;
+  renderizarListaOrcamentos();
+}
+function exportarBackup(){
+  const conteudo={versao:1,exportadoEm:new Date().toISOString(),orcamentos:lerOrcamentos()};
+  const blob=new Blob([JSON.stringify(conteudo,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='backup-orcamentos-viveiro-guarapuava-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+async function importarBackup(event){
+  const arq=event.target.files&&event.target.files[0];if(!arq)return;
+  try{
+    const obj=JSON.parse(await arq.text());
+    const novos=Array.isArray(obj)?obj:(Array.isArray(obj.orcamentos)?obj.orcamentos:null);
+    if(!novos)throw new Error('Formato inválido');
+    const atual=lerOrcamentos();
+    const mapa=new Map(atual.map(x=>[x.id,x]));
+    novos.forEach(x=>{if(x&&x.id)mapa.set(x.id,x)});
+    gravarOrcamentos([...mapa.values()]);
+    renderizarListaOrcamentos();
+    alert('Backup importado com sucesso.');
+  }catch(e){alert('Não foi possível importar este backup.')}
+  event.target.value='';
+}
+
+function addItem(q=1,d='',v=''){seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}"><input type="number" min="0" step="0.01" value="${v}" oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular()}
+function calcular(){let s=0;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input'),x=(+i[0].value||0)*(+i[2].value||0);r.querySelector('.subtotal').textContent=moeda(x);s+=x});const desc=+document.getElementById('desconto').value||0;document.getElementById('subtotal').textContent=moeda(s);document.getElementById('total').textContent=moeda(Math.max(0,s-desc))}
+function texto(){let t=`ORÇAMENTO - VIVEIRO GUARAPUAVA\nNº ${numero.textContent}\nCliente: ${cliente.value}\nTelefone: ${telefone.value}\nEndereço: ${endereco.value}\nCidade: ${cidade.value} - ${estado.value}\nCEP: ${cep.value}\nCNPJ/CPF: ${documento.value}\nInscrição Estadual: ${inscricao.value}\nCondições: ${condicoes.value}\n\nITENS:\n`;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input');t+=`${i[0].value} x ${i[1].value} - ${moeda(i[2].value)}\n`});t+=`\nTOTAL: ${total.textContent}\nValidade: ${validade.value}\n\n${obs.value}`;return t}
+
+async function imagemParaDataURL(src){
+  const img=await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=src+'?v='+Date.now()});
+  const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+  canvas.getContext('2d').drawImage(img,0,0);
+  return canvas.toDataURL('image/jpeg',0.92);
+}
+
+async function gerarPDF(){
+  if(!window.jspdf){alert('Não foi possível carregar o gerador de PDF. Verifique sua conexão e tente novamente.');return null}
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const verde=[22,101,52], verdeClaro=[116,169,63], cinza=[245,248,245];
+  const margem=14, largura=182;
+  
+  try{
+    const logoSrc=document.querySelector('.topo>img').getAttribute('src');const logoData=await imagemParaDataURL(logoSrc);
+    doc.addImage(logoData,'JPEG',margem,10,52,24,undefined,'FAST');
+  }catch(e){}
+
+  doc.setDrawColor(...verde);doc.setLineWidth(0.6);doc.line(72,10,72,37);
+  doc.setTextColor(...verde);doc.setFont('helvetica','bold');doc.setFontSize(20);doc.text('ORÇAMENTO',78,17);
+  doc.setTextColor(40,40,40);doc.setFont('helvetica','normal');doc.setFontSize(9);
+  doc.text('Nº '+numero.textContent,78,24);
+  doc.text('Data: '+data.textContent,78,29);
+  doc.setFont('helvetica','bold');doc.text('Viveiro Guarapuava',130,15);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.8);
+  doc.text(['R. Euríco Lustosa Siqueira, 727 - Industrial','Guarapuava - PR, 85045-460','Telefone: (42) 99117-1982','Produtor Rural - José António de Assis','CADPRO 95214791-99'],130,20);
+
+  doc.setFillColor(...verdeClaro);doc.roundedRect(margem,41,largura,2,1,1,'F');
+  doc.setFillColor(...cinza);doc.setDrawColor(175,190,175);doc.roundedRect(margem,48,largura,43,3,3,'FD');
+
+  doc.setFontSize(8);doc.setTextColor(30,30,30);doc.setFont('helvetica','bold');
+  const campos=[
+    ['Cliente',cliente.value||''],['Telefone',telefone.value||''],
+    ['Endereço',endereco.value||''],['Cidade / Estado',(cidade.value||'')+(estado.value?' - '+estado.value:'')],
+    ['CEP',cep.value||''],['E-mail',email.value||''],
+    ['CNPJ / CPF',documento.value||''],['Inscrição Estadual',inscricao.value||''],
+    ['Condições',condicoes.value||''],['Validade',validade.value||'']
+  ];
+  let y=54;
+  for(let i=0;i<campos.length;i+=2){
+    const a=campos[i], b=campos[i+1];
+    doc.setFont('helvetica','bold');doc.text(a[0]+':',margem+4,y);
+    doc.setFont('helvetica','normal');doc.text(String(a[1]).substring(0,45),margem+29,y);
+    if(b){doc.setFont('helvetica','bold');doc.text(b[0]+':',108,y);doc.setFont('helvetica','normal');doc.text(String(b[1]).substring(0,36),137,y)}
+    y+=7;
+  }
+
+  const linhas=[];
+  document.querySelectorAll('.linha-item').forEach(r=>{
+    const i=r.querySelectorAll('input');
+    const qtd=Number(i[0].value||0), descricao=i[1].value||'', unit=Number(i[2].value||0);
+    if(qtd || descricao || unit) linhas.push([qtd,descricao,moeda(unit),moeda(qtd*unit)]);
+  });
+  if(!linhas.length) linhas.push(['','','','']);
+
+  doc.autoTable({
+    startY:98,
+    head:[['Qtd.','Descrição','Valor Unit.','Total']],
+    body:linhas,
+    theme:'grid',
+    styles:{font:'helvetica',fontSize:8,cellPadding:2.3,textColor:[30,30,30],lineColor:[210,215,210]},
+    headStyles:{fillColor:verde,textColor:[255,255,255],fontStyle:'bold'},
+    columnStyles:{0:{cellWidth:18,halign:'center'},1:{cellWidth:96},2:{cellWidth:32,halign:'right'},3:{cellWidth:36,halign:'right'}},
+    margin:{left:margem,right:margem}
+  });
+
+  let py=doc.lastAutoTable.finalY+8;
+  if(py>230) doc.addPage(), py=20;
+  doc.setFillColor(...cinza);doc.roundedRect(115,py,81,25,3,3,'F');
+  doc.setFontSize(9);doc.setTextColor(50,50,50);
+  doc.text('Subtotal',120,py+7);doc.text(document.getElementById('subtotal').textContent,190,py+7,{align:'right'});
+  doc.text('Desconto',120,py+13);doc.text(moeda(desconto.value),190,py+13,{align:'right'});
+  doc.setTextColor(...verde);doc.setFont('helvetica','bold');doc.setFontSize(12);
+  doc.text('TOTAL',120,py+21);doc.text(total.textContent,190,py+21,{align:'right'});
+
+  py+=34;
+  if(obs.value){
+    doc.setFont('helvetica','bold');doc.setTextColor(40,40,40);doc.setFontSize(8);doc.text('Observações / condições',margem,py);
+    doc.setFont('helvetica','normal');doc.setFontSize(8);
+    const ot=doc.splitTextToSize(obs.value,largura);
+    doc.text(ot,margem,py+5);
+    py+=Math.min(35,ot.length*4)+8;
+  }
+  if(py>260) doc.addPage(),py=220;
+  const linhaY=Math.min(268,Math.max(py+20,245));
+  doc.setDrawColor(100,100,100);doc.setLineWidth(0.3);
+  doc.line(22,linhaY,92,linhaY);doc.line(118,linhaY,188,linhaY);
+  doc.setFontSize(7.5);doc.setTextColor(90,90,90);doc.setFont('helvetica','normal');
+  doc.text('Assinatura do cliente',57,linhaY+5,{align:'center'});
+  doc.text('Responsável / Viveiro Guarapuava',153,linhaY+5,{align:'center'});
+  doc.setDrawColor(...verde);doc.line(margem,282,196,282);
+  doc.setFontSize(6.8);doc.setTextColor(90,90,90);
+  doc.text('Viveiro Guarapuava • Produtor Rural - José António de Assis • CADPRO 95214791-99 • (42) 99117-1982',105,287,{align:'center'});
+
+  return doc;
+}
+
+async function enviarEmail(){
+  const doc=await gerarPDF();if(!doc)return;
+  const nome='Orcamento-'+(numero.textContent||'Viveiro-Guarapuava')+'.pdf';
+  const blob=doc.output('blob');
+  const arquivo=new File([blob],nome,{type:'application/pdf'});
+  const dest=email.value||'';
+  const assunto='Orçamento Viveiro Guarapuava - '+numero.textContent;
+
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[arquivo]})){
+    try{
+      await navigator.share({
+        title:assunto,
+        text:(dest?'Enviar para: '+dest+'\n':'')+'Segue o orçamento em PDF.',
+        files:[arquivo]
+      });
+      return;
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+  }
+
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download=nome;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+  const mailto='mailto:'+encodeURIComponent(dest)+'?subject='+encodeURIComponent(assunto)+'&body='+encodeURIComponent('O PDF do orçamento foi baixado no aparelho. Anexe o arquivo '+nome+' a este e-mail.');
+  setTimeout(()=>{location.href=mailto},500);
+}
+
+async function enviarWhatsAppPDF(){
+  const doc=await gerarPDF();if(!doc)return;
+  const nome='Orcamento-'+(numero.textContent||'Viveiro-Guarapuava')+'.pdf';
+  const blob=doc.output('blob');
+  const arquivo=new File([blob],nome,{type:'application/pdf'});
+  const mensagem='Orçamento Viveiro Guarapuava - '+numero.textContent+(cliente.value?' - '+cliente.value:'');
+
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[arquivo]})){
+    try{
+      await navigator.share({
+        title:mensagem,
+        text:mensagem,
+        files:[arquivo]
+      });
+      return;
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+  }
+
+  // Fallback: baixa o PDF e abre o WhatsApp com a mensagem.
+  // Navegadores não permitem anexar automaticamente o arquivo em wa.me.
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=nome;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+  const texto=encodeURIComponent(mensagem+'\nO PDF foi baixado no aparelho. Anexe o arquivo '+nome+' nesta conversa.');
+  setTimeout(()=>{window.open('https://wa.me/?text='+texto,'_blank')},500);
+}
+
+function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();mostrarStatus('Novo orçamento')}
+function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')fecharListaOrcamentos()});
+verificarLogin();
+iniciar();addItem();addItem();
+</script></body></html>
