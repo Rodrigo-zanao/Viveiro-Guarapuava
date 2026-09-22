@@ -8,7 +8,7 @@
 @media print{body{background:#fff}.wrap{box-shadow:none;margin:0;max-width:none;padding:10mm}.acoes,.addbtn,.remover{display:none!important}.campo input,.campo textarea,.linha-item input{border:0;padding:3px;background:transparent}.topo img{max-width:360px}.wrap{border-radius:0}}
 </style>
 </head><body><div class="wrap">
-<div class="topo"><img src="logo.png" alt="Viveiro Guarapuava"><div><h1>ORÇAMENTO</h1><p>Nº <span id="numero"></span><br>Data: <span id="data"></span></p></div></div>
+<div class="topo"><img src="logo.png" alt="Viveiro Guarapuava"><div><h1>ORÇAMENTO</h1><p>Nº <span id="numero"></span><br>Data: <span id="data"></span></p><p style="font-size:13px;line-height:1.5"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial<br>Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982</p></div></div>
 <div class="grid">
 <div class="campo"><label>Cliente</label><input id="cliente" placeholder="Nome do cliente"></div>
 <div class="campo"><label>E-mail</label><input id="email" type="email" placeholder="cliente@email.com"></div>
@@ -19,7 +19,7 @@
 <div class="totais"><div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><div><span>Desconto (R$)</span><input id="desconto" type="number" min="0" step="0.01" value="0" oninput="calcular()" style="width:120px"></div><div class="total"><span>TOTAL</span><span id="total">R$ 0,00</span></div></div>
 <div class="campo obs"><label>Observações / condições</label><textarea id="obs" placeholder="Prazo de entrega, forma de pagamento, frete, condições comerciais..."></textarea></div>
 <div class="acoes"><button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button><button class="btn verde" onclick="enviarEmail()">Enviar por e-mail</button><button class="btn cinza" onclick="novo()">Novo orçamento</button></div>
-<div class="rodape">Viveiro Guarapuava</div></div>
+<div class="rodape"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial, Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982</div></div>
 <script>
 const moeda=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});let seq=0;
 function addItem(q=1,d='',v=''){seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" placeholder="Descrição do item"><input type="number" min="0" step="0.01" value="${v}" placeholder="Valor unit." oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular()}
