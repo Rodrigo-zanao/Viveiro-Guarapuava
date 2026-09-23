@@ -135,8 +135,15 @@ begin
 
     if new.status is distinct from old.status then
 
-      if not public.eh_admin() then
-        raise exception 'Somente administradores podem alterar a situação.';
+      -- Qualquer usuário autenticado pode enviar um orçamento ABERTO
+      -- para AGUARDANDO_APROVACAO.
+      -- Todas as demais mudanças (aprovar, concluir e voltar)
+      -- são exclusivas dos administradores.
+      if not (
+        old.status = 'ABERTO'
+        and new.status = 'AGUARDANDO_APROVACAO'
+      ) and not public.eh_admin() then
+        raise exception 'Somente administradores podem aprovar, concluir ou voltar a situação.';
       end if;
 
       pos_antiga := case old.status
