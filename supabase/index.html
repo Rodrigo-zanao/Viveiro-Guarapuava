@@ -65,7 +65,7 @@ html,body{background:#fff!important;font-size:12px!important}
     <button id="btnStatusAguardando" class="btn cinza btn-peq" onclick="irParaStatus('AGUARDANDO_APROVACAO')">Aguardando Aprovação</button>
     <button id="btnStatusAprovado" class="btn verde btn-peq" onclick="irParaStatus('APROVADO')">Aprovar</button>
     <button id="btnStatusConcluido" class="btn verde btn-peq" onclick="irParaStatus('CONCLUIDO')">Concluído</button>
-    <button id="btnStatusVoltarAberto" class="btn cinza btn-peq" onclick="irParaStatus('ABERTO')" style="display:none">← Voltar para Aberto</button>
+    <button id="btnReabrir" class="btn cinza btn-peq" onclick="reabrirOrcamento()" style="display:none">Reabrir</button>
   </div>
 </div>
 <div class="bloco-dados">
@@ -274,11 +274,11 @@ function atualizarBotoesStatus(){
     btn.classList.toggle('status-etapa-atual',status===orcamentoStatus);
   });
 
-  const voltarAberto=document.getElementById('btnStatusVoltarAberto');
-  if(voltarAberto){
-    const mostrar=usuarioEhAdmin && orcamentoStatus==='AGUARDANDO_APROVACAO' && !!orcamentoAtualId;
-    voltarAberto.style.display=mostrar?'inline-block':'none';
-    voltarAberto.disabled=!mostrar;
+  const reabrir=document.getElementById('btnReabrir');
+  if(reabrir){
+    const mostrar=usuarioEhAdmin && orcamentoStatus!=='ABERTO' && !!orcamentoAtualId;
+    reabrir.style.display=mostrar?'inline-block':'none';
+    reabrir.disabled=!mostrar;
   }
 }
 function aplicarBloqueioEdicao(){
@@ -333,6 +333,40 @@ async function irParaStatus(novoStatus){
   orcamentoStatus=data.status||novoStatus;
   atualizarSituacaoTela();
   mostrarStatus('Situação alterada para '+labelStatus(orcamentoStatus));
+
+  if(document.getElementById('modalOrcamentos').classList.contains('aberto')){
+    await renderizarListaOrcamentos();
+  }
+}
+async function reabrirOrcamento(){
+  if(!(await exigirLogin()))return;
+  if(!usuarioEhAdmin){
+    alert('Somente administradores podem reabrir um orçamento.');
+    return;
+  }
+  if(!orcamentoAtualId){
+    alert('Abra um orçamento salvo antes de reabrir.');
+    return;
+  }
+  if(orcamentoStatus==='ABERTO')return;
+
+  if(!confirm('Reabrir este orçamento? Ele voltará para Aberto e poderá ser alterado novamente.'))return;
+
+  const {data,error}=await sb.from('orcamentos')
+    .update({status:'ABERTO'})
+    .eq('id',orcamentoAtualId)
+    .select('status')
+    .single();
+
+  if(error){
+    console.error(error);
+    alert('Não foi possível reabrir o orçamento: '+(error.message||error));
+    return;
+  }
+
+  orcamentoStatus=data.status||'ABERTO';
+  atualizarSituacaoTela();
+  mostrarStatus('Orçamento reaberto e liberado para edição');
 
   if(document.getElementById('modalOrcamentos').classList.contains('aberto')){
     await renderizarListaOrcamentos();
