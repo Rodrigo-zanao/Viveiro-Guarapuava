@@ -239,7 +239,34 @@ const STATUS_LABELS={ABERTO:'Aberto',AGUARDANDO_APROVACAO:'Aguardando Aprovaçã
 function labelStatus(s){return STATUS_LABELS[s]||s||'Aberto'}
 function statusClasse(s){return 'status-'+(s||'ABERTO')}
 async function carregarPerfilAcesso(){
-  try{const {data,error}=await sb.rpc('eh_admin');usuarioEhAdmin=!error&&data===true}catch(e){usuarioEhAdmin=false}
+  usuarioEhAdmin=false;
+  try{
+    const {data:userData}=await sb.auth.getUser();
+    const email=userData&&userData.user?String(userData.user.email||''):'';
+    const usuario=email.split('@')[0].toLowerCase();
+
+    if(usuario){
+      const {data:adminRow,error:adminError}=await sb
+        .from('admins')
+        .select('usuario')
+        .ilike('usuario',usuario)
+        .maybeSingle();
+
+      if(!adminError && adminRow){
+        usuarioEhAdmin=true;
+      }
+    }
+
+    // Fallback para a função RPC, caso a consulta direta não retorne.
+    if(!usuarioEhAdmin){
+      const {data,error}=await sb.rpc('eh_admin');
+      usuarioEhAdmin=!error && data===true;
+    }
+  }catch(e){
+    console.warn('Não foi possível validar administrador:',e);
+    usuarioEhAdmin=false;
+  }
+
   atualizarSituacaoTela();
 }
 function atualizarSituacaoTela(){
