@@ -162,12 +162,20 @@ begin
         else 0
       end;
 
-      if pos_antiga = 0
-         or pos_nova = 0
-         or abs(pos_nova-pos_antiga) <> 1
+      -- Administrador pode REABRIR diretamente qualquer situação para ABERTO.
+      -- Nos demais casos, continua valendo uma etapa por vez.
+      if not (
+           public.eh_admin()
+       and new.status = 'ABERTO'
+       and old.status <> 'ABERTO'
+      ) and (
+           pos_antiga = 0
+        or pos_nova = 0
+        or abs(pos_nova-pos_antiga) <> 1
+      )
       then
         raise exception
-          'A situação deve seguir a sequência Aberto -> Aguardando Aprovação -> Aprovado -> Concluído, um passo por vez.';
+          'A situação deve seguir a sequência Aberto -> Aguardando Aprovação -> Aprovado -> Concluído, uma etapa por vez.';
       end if;
 
     end if;
@@ -304,6 +312,9 @@ begin
   if new.status is distinct from old.status then
 
     acao_txt := case
+      when new.status='ABERTO' and old.status<>'ABERTO'
+        then 'REABERTO'
+
       when old.status='ABERTO'
        and new.status='AGUARDANDO_APROVACAO'
         then 'ENVIADO PARA APROVAÇÃO'
