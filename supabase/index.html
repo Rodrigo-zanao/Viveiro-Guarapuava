@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Orçamento - Viveiro Guarapuava</title>
 <style>
-:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}.cliente-acoes{margin-top:12px}.nuvem-info{font-size:12px;color:#356043;align-self:center}.busca-cliente{display:flex;gap:8px;margin-bottom:14px}.busca-cliente input{flex:1;padding:10px;border:1px solid #9fb29f;border-radius:8px;font-size:14px}.cliente-card{border:1px solid #d7e2d7;border-radius:10px;padding:11px 12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.cliente-card strong{color:var(--escuro)}.cliente-meta{font-size:12px;color:#666;margin-top:3px}.hist-item{border-left:4px solid var(--verde);background:#f8fbf8;border-radius:8px;padding:10px 12px;margin:8px 0}.hist-item strong{color:var(--escuro)}.hist-meta{font-size:12px;color:#666;margin-top:4px}.produto-ajuda{font-size:11px;color:#667;margin:5px 0 0}.situacao-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 15px;padding:12px 15px;border:1px solid #cad8ca;border-radius:10px;background:#f8fbf8}.situacao-info{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.situacao-info strong{color:var(--escuro)}.status-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:bold;background:#e5e7eb;color:#374151}.status-ABERTO{background:#dcfce7;color:#166534}.status-AGUARDANDO_APROVACAO{background:#fef3c7;color:#92400e}.status-APROVADO{background:#dbeafe;color:#1d4ed8}.status-CONCLUIDO{background:#e5e7eb;color:#374151}.fluxo-status{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.fluxo-status .btn:disabled,.btn:disabled{opacity:.45;cursor:not-allowed}.bloqueado-aviso{font-size:12px;color:#92400e;font-weight:bold}.admin-indicador{font-size:11px;color:#166534;font-weight:bold}.campo-bloqueado{background:#f3f4f6!important;color:#555!important}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
+:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}.cliente-acoes{margin-top:12px}.nuvem-info{font-size:12px;color:#356043;align-self:center}.busca-cliente{display:flex;gap:8px;margin-bottom:14px}.busca-cliente input{flex:1;padding:10px;border:1px solid #9fb29f;border-radius:8px;font-size:14px}.cliente-card{border:1px solid #d7e2d7;border-radius:10px;padding:11px 12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.cliente-card strong{color:var(--escuro)}.cliente-meta{font-size:12px;color:#666;margin-top:3px}.hist-item{border-left:4px solid var(--verde);background:#f8fbf8;border-radius:8px;padding:10px 12px;margin:8px 0}.hist-item strong{color:var(--escuro)}.hist-meta{font-size:12px;color:#666;margin-top:4px}.produto-ajuda{font-size:11px;color:#667;margin:5px 0 0}.situacao-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 15px;padding:12px 15px;border:1px solid #cad8ca;border-radius:10px;background:#f8fbf8}.situacao-info{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.situacao-info strong{color:var(--escuro)}.status-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:bold;background:#e5e7eb;color:#374151}.status-ABERTO{background:#dcfce7;color:#166534}.status-AGUARDANDO_APROVACAO{background:#fef3c7;color:#92400e}.status-APROVADO{background:#dbeafe;color:#1d4ed8}.status-CONCLUIDO{background:#e5e7eb;color:#374151}.fluxo-status{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.fluxo-status .btn:disabled,.btn:disabled{opacity:.45;cursor:not-allowed}.bloqueado-aviso{font-size:12px;color:#92400e;font-weight:bold}.admin-indicador{font-size:11px;color:#166534;font-weight:bold}.campo-bloqueado{background:#f3f4f6!important;color:#555!important}.status-etapa-atual{outline:2px solid var(--verde);box-shadow:0 0 0 2px rgba(22,101,52,.12)}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
 @media print{
 @page{size:A4 portrait;margin:10mm 10mm 12mm}
 html,body{background:#fff!important;font-size:12px!important}
@@ -61,9 +61,11 @@ html,body{background:#fff!important;font-size:12px!important}
     <span id="avisoBloqueado" class="bloqueado-aviso"></span>
     <span id="adminIndicador" class="admin-indicador"></span>
   </div>
-  <div id="fluxoStatus" class="fluxo-status" style="display:none">
-    <button id="btnStatusVoltar" class="btn cinza btn-peq" onclick="alterarSituacao(-1)">← Voltar situação</button>
-    <button id="btnStatusAvancar" class="btn verde btn-peq" onclick="alterarSituacao(1)">Avançar situação →</button>
+  <div id="fluxoStatus" class="fluxo-status">
+    <button id="btnStatusAguardando" class="btn cinza btn-peq" onclick="irParaStatus('AGUARDANDO_APROVACAO')">Aguardando Aprovação</button>
+    <button id="btnStatusAprovado" class="btn verde btn-peq" onclick="irParaStatus('APROVADO')">Aprovar</button>
+    <button id="btnStatusConcluido" class="btn verde btn-peq" onclick="irParaStatus('CONCLUIDO')">Concluído</button>
+    <button id="btnStatusVoltarAberto" class="btn cinza btn-peq" onclick="irParaStatus('ABERTO')" style="display:none">← Voltar para Aberto</button>
   </div>
 </div>
 <div class="bloco-dados">
@@ -233,13 +235,51 @@ async function carregarPerfilAcesso(){
 }
 function atualizarSituacaoTela(){
   const badge=document.getElementById('situacaoBadge');if(!badge)return;
-  badge.textContent=labelStatus(orcamentoStatus);badge.className='status-badge '+statusClasse(orcamentoStatus);
-  const admin=document.getElementById('adminIndicador');if(admin)admin.textContent=usuarioEhAdmin?'Administrador':'';
-  const fluxo=document.getElementById('fluxoStatus');if(fluxo)fluxo.style.display=(usuarioEhAdmin&&!!orcamentoAtualId)?'flex':'none';
-  const idx=STATUS_FLUXO.indexOf(orcamentoStatus),voltar=document.getElementById('btnStatusVoltar'),avancar=document.getElementById('btnStatusAvancar');
-  if(voltar){voltar.disabled=idx<=0;voltar.textContent=idx===1?'← Voltar para Aberto':idx===2?'← Estornar aprovação':idx===3?'← Voltar para Aprovado':'← Voltar situação'}
-  if(avancar){avancar.disabled=idx<0||idx>=STATUS_FLUXO.length-1;avancar.textContent=idx===0?'Enviar para aprovação →':idx===1?'Aprovar →':idx===2?'Concluir →':'Concluído'}
+  badge.textContent=labelStatus(orcamentoStatus);
+  badge.className='status-badge '+statusClasse(orcamentoStatus);
+
+  const admin=document.getElementById('adminIndicador');
+  if(admin)admin.textContent=usuarioEhAdmin?'Administrador':'';
+
+  const fluxo=document.getElementById('fluxoStatus');
+  if(fluxo)fluxo.style.display=orcamentoAtualId?'flex':'none';
+
+  atualizarBotoesStatus();
   aplicarBloqueioEdicao();
+}
+function atualizarBotoesStatus(){
+  const atual=STATUS_FLUXO.indexOf(orcamentoStatus);
+  const defs=[
+    ['btnStatusAguardando','AGUARDANDO_APROVACAO'],
+    ['btnStatusAprovado','APROVADO'],
+    ['btnStatusConcluido','CONCLUIDO']
+  ];
+
+  defs.forEach(([id,status])=>{
+    const btn=document.getElementById(id);if(!btn)return;
+    const destino=STATUS_FLUXO.indexOf(status);
+    const passo=Math.abs(destino-atual)===1;
+    let permitido=false;
+
+    // Qualquer usuário autenticado pode enviar Aberto -> Aguardando Aprovação.
+    if(orcamentoStatus==='ABERTO' && status==='AGUARDANDO_APROVACAO'){
+      permitido=!!orcamentoAtualId;
+    }
+    // A partir da aprovação, para frente ou para trás, somente administrador.
+    else if(usuarioEhAdmin && passo){
+      permitido=true;
+    }
+
+    btn.disabled=!permitido;
+    btn.classList.toggle('status-etapa-atual',status===orcamentoStatus);
+  });
+
+  const voltarAberto=document.getElementById('btnStatusVoltarAberto');
+  if(voltarAberto){
+    const mostrar=usuarioEhAdmin && orcamentoStatus==='AGUARDANDO_APROVACAO' && !!orcamentoAtualId;
+    voltarAberto.style.display=mostrar?'inline-block':'none';
+    voltarAberto.disabled=!mostrar;
+  }
 }
 function aplicarBloqueioEdicao(){
   const podeEditar=orcamentoStatus==='ABERTO';
@@ -249,18 +289,54 @@ function aplicarBloqueioEdicao(){
   ['btnAdicionarItem','btnSalvarOrcamento','btnSalvarCliente','btnClientesCadastrados'].forEach(id=>{const el=document.getElementById(id);if(el)el.disabled=!podeEditar});
   const aviso=document.getElementById('avisoBloqueado');if(aviso)aviso.textContent=podeEditar?'':'Orçamento somente para consulta';
 }
-async function alterarSituacao(direcao){
+async function irParaStatus(novoStatus){
   if(!(await exigirLogin()))return;
-  if(!usuarioEhAdmin){alert('Somente administradores podem alterar a situação do orçamento.');return}
-  if(!orcamentoAtualId){alert('Salve o orçamento antes de alterar a situação.');return}
-  const atual=STATUS_FLUXO.indexOf(orcamentoStatus),novoIdx=atual+direcao;if(atual<0||novoIdx<0||novoIdx>=STATUS_FLUXO.length)return;
-  if(orcamentoStatus==='ABERTO'&&direcao===1){const ok=await salvarOrcamento();if(!ok)return}
-  const novoStatus=STATUS_FLUXO[novoIdx],anterior=orcamentoStatus;
-  if(!confirm('Alterar a situação de "'+labelStatus(anterior)+'" para "'+labelStatus(novoStatus)+'"?'))return;
-  const {data,error}=await sb.from('orcamentos').update({status:novoStatus}).eq('id',orcamentoAtualId).select('status').single();
-  if(error){console.error(error);alert('Não foi possível alterar a situação: '+(error.message||error));return}
-  orcamentoStatus=data.status||novoStatus;atualizarSituacaoTela();mostrarStatus('Situação alterada para '+labelStatus(orcamentoStatus));
-  if(document.getElementById('modalOrcamentos').classList.contains('aberto'))await renderizarListaOrcamentos();
+  if(!orcamentoAtualId){
+    alert('Salve o orçamento antes de alterar a situação.');
+    return;
+  }
+
+  const atual=STATUS_FLUXO.indexOf(orcamentoStatus);
+  const destino=STATUS_FLUXO.indexOf(novoStatus);
+  if(atual<0||destino<0||Math.abs(destino-atual)!==1){
+    alert('A situação só pode avançar ou voltar uma etapa por vez.');
+    return;
+  }
+
+  const envioParaAprovacao=orcamentoStatus==='ABERTO' && novoStatus==='AGUARDANDO_APROVACAO';
+
+  if(!envioParaAprovacao && !usuarioEhAdmin){
+    alert('Somente administradores podem aprovar, concluir ou voltar a situação.');
+    return;
+  }
+
+  // Antes de sair de Aberto, salva os dados atuais.
+  if(envioParaAprovacao){
+    const ok=await salvarOrcamento();
+    if(!ok)return;
+  }
+
+  if(!confirm('Alterar a situação de "'+labelStatus(orcamentoStatus)+'" para "'+labelStatus(novoStatus)+'"?'))return;
+
+  const {data,error}=await sb.from('orcamentos')
+    .update({status:novoStatus})
+    .eq('id',orcamentoAtualId)
+    .select('status')
+    .single();
+
+  if(error){
+    console.error(error);
+    alert('Não foi possível alterar a situação: '+(error.message||error));
+    return;
+  }
+
+  orcamentoStatus=data.status||novoStatus;
+  atualizarSituacaoTela();
+  mostrarStatus('Situação alterada para '+labelStatus(orcamentoStatus));
+
+  if(document.getElementById('modalOrcamentos').classList.contains('aberto')){
+    await renderizarListaOrcamentos();
+  }
 }
 async function usuarioAtual(){
   const {data}=await sb.auth.getUser();
