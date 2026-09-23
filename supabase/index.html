@@ -4,12 +4,12 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Orçamento - Viveiro Guarapuava</title>
 <style>
-:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}.cliente-acoes{margin-top:12px}.nuvem-info{font-size:12px;color:#356043;align-self:center}.busca-cliente{display:flex;gap:8px;margin-bottom:14px}.busca-cliente input{flex:1;padding:10px;border:1px solid #9fb29f;border-radius:8px;font-size:14px}.cliente-card{border:1px solid #d7e2d7;border-radius:10px;padding:11px 12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.cliente-card strong{color:var(--escuro)}.cliente-meta{font-size:12px;color:#666;margin-top:3px}.hist-item{border-left:4px solid var(--verde);background:#f8fbf8;border-radius:8px;padding:10px 12px;margin:8px 0}.hist-item strong{color:var(--escuro)}.hist-meta{font-size:12px;color:#666;margin-top:4px}.produto-ajuda{font-size:11px;color:#667;margin:5px 0 0}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
+:root{--verde:#166534;--verde-medio:#1f7a3e;--verde-claro:#74a93f;--escuro:#0f4b27;--cinza:#f4f6f4;--borda:#cfd8cf}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef2ee;color:#222}.wrap{max-width:1100px;margin:25px auto;background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 18px #0002}.topo{position:relative;display:grid;grid-template-columns:46% 54%;align-items:center;gap:28px;padding:22px 38px 70px;margin:-28px -28px 22px;overflow:hidden;background:#fff}.topo:before,.topo:after{content:"";position:absolute;left:-5%;width:110%;height:46px;bottom:-22px;transform-origin:center}.topo:before{background:#b9dfbd;bottom:-8px;border-radius:48% 52% 0 0/70% 65% 0 0;transform:rotate(1.1deg)}.topo:after{background:#238c35;bottom:-19px;border-radius:55% 45% 0 0/80% 60% 0 0;transform:rotate(-1.2deg)}.topo>img{max-width:304px;width:100%;height:auto;display:block;object-fit:contain;clip-path:none;margin-bottom:0;align-self:center;justify-self:start}.dados-topo{border-left:2px solid var(--verde-medio);padding-left:34px;display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:start}.topo h1{margin:0 0 16px;color:var(--escuro);font-size:30px}.contato-topo{font-size:13px;line-height:1.55;padding-top:7px}.contato-topo strong{color:var(--escuro);font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bloco-dados{margin-top:8px;border:2px solid rgba(22,101,52,.18);border-radius:14px;padding:16px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,#f7fbf7 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}.campo label{display:block;font-weight:bold;margin:0 0 5px}.campo input,.campo textarea{width:100%;padding:10px;border:1px solid #9fb29f;border-radius:7px;font-size:15px;background:#fff}.campo input::placeholder,.campo textarea::placeholder{color:transparent}.campo textarea{min-height:72px;resize:vertical}.grid-cliente{grid-template-columns:2fr 1fr}.grid-endereco{grid-template-columns:2fr 1fr 110px}.grid-documentos{grid-template-columns:1fr 1fr}.assinatura{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}.assinatura div{border-top:1px solid #777;padding-top:5px;text-align:center;font-size:12px;color:#555}.linha-item{display:grid;grid-template-columns:90px 1fr 130px 130px 44px;gap:8px;margin:8px 0;align-items:center}.linha-item input{width:100%;padding:9px;border:1px solid #bbb;border-radius:6px}.subtotal{text-align:right;font-weight:bold}.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold;cursor:pointer}.verde{background:var(--verde);color:#fff}.cinza{background:#e5e5e5}.vermelho{background:#d9534f;color:#fff;padding:8px}.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.totais{margin:20px 0 0 auto;max-width:380px;background:var(--cinza);padding:16px;border-radius:9px}.totais div{display:flex;justify-content:space-between;margin:8px 0}.total{font-size:22px;color:var(--escuro);font-weight:bold;border-top:2px solid var(--verde);padding-top:10px}.obs{margin-top:12px}.separador{height:10px;margin:16px 0 18px;position:relative;overflow:hidden}.separador:before,.separador:after{content:"";position:absolute;left:-2%;width:104%;border-radius:50%}.separador:before{bottom:2px;height:4px;background:linear-gradient(90deg,var(--verde-claro),var(--verde-medio),var(--verde));transform:rotate(-.2deg)}.separador:after{bottom:0;height:2px;background:rgba(15,75,39,.25);transform:rotate(.15deg)}.separador-obs{margin-top:16px}.separador-rodape{margin-top:18px}.rodape{text-align:center;margin-top:25px;color:#666;font-size:12px}.status-salvo{font-size:12px;color:var(--escuro);align-self:center;min-height:16px}.modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.48);padding:18px;overflow:auto}.modal.aberto{display:flex;align-items:flex-start;justify-content:center}.modal-card{width:min(900px,100%);background:#fff;border-radius:14px;margin:3vh auto;padding:20px;box-shadow:0 18px 55px #0005}.modal-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #dbe4db;padding-bottom:12px;margin-bottom:14px}.modal-topo h2{margin:0;color:var(--escuro);font-size:22px}.fechar-modal{border:0;background:#eee;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}.modal-acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nota-local{font-size:12px;color:#666;margin:0 0 14px}.lista-orcamentos{display:grid;gap:10px}.orc-card{border:1px solid #d7e2d7;border-radius:10px;padding:12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.orc-info strong{display:block;color:var(--escuro);font-size:15px;margin-bottom:4px}.orc-meta{font-size:12px;color:#666;line-height:1.45}.orc-botoes{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.btn-peq{padding:8px 10px;font-size:12px}.vazio{text-align:center;color:#777;padding:30px 10px;border:1px dashed #ccd7cc;border-radius:10px}.arquivo-importar{display:none}.login-tela{position:fixed;z-index:20000;inset:0;background:linear-gradient(135deg,#0f4b27,#166534 55%,#74a93f);display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:min(380px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 55px #0006;text-align:center}.login-card img{max-width:180px;width:70%;height:auto;margin-bottom:10px}.login-card h2{margin:4px 0 18px;color:var(--escuro)}.login-card input{width:100%;padding:12px;border:1px solid #9fb29f;border-radius:8px;font-size:15px;margin:6px 0}.login-card .btn{width:100%;margin-top:10px}.login-erro{min-height:18px;color:#b42318;font-size:12px;margin-top:8px}.login-oculto{display:none!important}.produtor-info{margin-top:7px;padding-top:7px;border-top:1px solid rgba(22,101,52,.25);font-size:11px;line-height:1.35;color:#244b31}.cliente-acoes{margin-top:12px}.nuvem-info{font-size:12px;color:#356043;align-self:center}.busca-cliente{display:flex;gap:8px;margin-bottom:14px}.busca-cliente input{flex:1;padding:10px;border:1px solid #9fb29f;border-radius:8px;font-size:14px}.cliente-card{border:1px solid #d7e2d7;border-radius:10px;padding:11px 12px;background:#fafcfa;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.cliente-card strong{color:var(--escuro)}.cliente-meta{font-size:12px;color:#666;margin-top:3px}.hist-item{border-left:4px solid var(--verde);background:#f8fbf8;border-radius:8px;padding:10px 12px;margin:8px 0}.hist-item strong{color:var(--escuro)}.hist-meta{font-size:12px;color:#666;margin-top:4px}.produto-ajuda{font-size:11px;color:#667;margin:5px 0 0}.situacao-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 15px;padding:12px 15px;border:1px solid #cad8ca;border-radius:10px;background:#f8fbf8}.situacao-info{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.situacao-info strong{color:var(--escuro)}.status-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:bold;background:#e5e7eb;color:#374151}.status-ABERTO{background:#dcfce7;color:#166534}.status-AGUARDANDO_APROVACAO{background:#fef3c7;color:#92400e}.status-APROVADO{background:#dbeafe;color:#1d4ed8}.status-CONCLUIDO{background:#e5e7eb;color:#374151}.fluxo-status{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.fluxo-status .btn:disabled,.btn:disabled{opacity:.45;cursor:not-allowed}.bloqueado-aviso{font-size:12px;color:#92400e;font-weight:bold}.admin-indicador{font-size:11px;color:#166534;font-weight:bold}.campo-bloqueado{background:#f3f4f6!important;color:#555!important}@media(max-width:750px){.orc-card{grid-template-columns:1fr}.orc-botoes{justify-content:flex-start}.assinatura{grid-template-columns:1fr 1fr!important;gap:14px!important}.grid,.grid-cliente,.grid-endereco,.grid-documentos{grid-template-columns:1fr}.linha-item{grid-template-columns:65px 1fr}.linha-item>*:nth-child(n+3){grid-column:auto}.topo{display:block;padding:20px 20px 65px;margin:-28px -28px 20px}.topo img{width:100%;max-width:450px}.dados-topo{border-left:0;border-top:1px solid var(--verde);padding:18px 0 0;margin-top:15px;grid-template-columns:1fr}.contato-topo{padding-top:0}}
 @media print{
 @page{size:A4 portrait;margin:10mm 10mm 12mm}
 html,body{background:#fff!important;font-size:12px!important}
 .wrap{position:relative;box-shadow:none!important;margin:0!important;max-width:none!important;width:100%!important;min-height:274mm!important;padding:0 0 22mm!important;border-radius:0!important}
-.acoes,.addbtn,.remover,.modal,.status-salvo,.login-tela{display:none!important}
+.acoes,.addbtn,.remover,.modal,.status-salvo,.login-tela,.fluxo-status,.admin-indicador,.bloqueado-aviso{display:none!important}
 .topo{display:grid!important;grid-template-columns:36% 64%!important;align-items:center!important;gap:6px!important;margin:0 0 10px!important;padding:8px 4px 42px!important;overflow:hidden!important;min-height:133px!important}
 .topo>img{display:block!important;width:100%!important;max-width:173px!important;height:auto!important;object-fit:contain!important;clip-path:none!important;margin-bottom:0!important}
 .dados-topo{display:grid!important;grid-template-columns:.85fr 1.35fr!important;border-left:2px solid var(--verde)!important;padding-left:10px!important;gap:8px!important;min-width:0!important}
@@ -54,6 +54,18 @@ html,body{background:#fff!important;font-size:12px!important}
 <div class="contato-topo"><strong>Viveiro Guarapuava</strong><br>R. Euríco Lustosa Siqueira, 727 - Industrial<br>Guarapuava - PR, 85045-460<br>Telefone: (42) 99117-1982<div class="produtor-info"><strong>Produtor Rural - José António de Assis</strong><br>CADPRO 95214791-99</div></div>
 </div></div>
 <div class="separador"></div>
+<div class="situacao-box">
+  <div class="situacao-info">
+    <strong>Situação:</strong>
+    <span id="situacaoBadge" class="status-badge status-ABERTO">Aberto</span>
+    <span id="avisoBloqueado" class="bloqueado-aviso"></span>
+    <span id="adminIndicador" class="admin-indicador"></span>
+  </div>
+  <div id="fluxoStatus" class="fluxo-status" style="display:none">
+    <button id="btnStatusVoltar" class="btn cinza btn-peq" onclick="alterarSituacao(-1)">← Voltar situação</button>
+    <button id="btnStatusAvancar" class="btn verde btn-peq" onclick="alterarSituacao(1)">Avançar situação →</button>
+  </div>
+</div>
 <div class="bloco-dados">
 <div class="grid grid-cliente">
 <div class="campo"><label>Cliente</label><input id="cliente"></div>
@@ -76,15 +88,15 @@ html,body{background:#fff!important;font-size:12px!important}
 </div>
 </div>
 <div class="acoes cliente-acoes">
-  <button class="btn cinza" onclick="abrirClientes()">Clientes cadastrados</button>
-  <button class="btn verde" onclick="salvarClienteAtual()">Salvar / atualizar cliente</button>
+  <button id="btnClientesCadastrados" class="btn cinza" onclick="abrirClientes()">Clientes cadastrados</button>
+  <button id="btnSalvarCliente" class="btn verde" onclick="salvarClienteAtual()">Salvar / atualizar cliente</button>
   <span id="statusCliente" class="nuvem-info"></span>
 </div>
-<div class="separador"></div><h3>Itens do orçamento</h3><datalist id="produtosLista"></datalist><div class="produto-ajuda">Ao salvar o orçamento, novos itens são cadastrados automaticamente na tabela de produtos.</div><div id="itens"></div><button class="btn verde addbtn" onclick="addItem()">+ Adicionar item</button>
+<div class="separador"></div><h3>Itens do orçamento</h3><datalist id="produtosLista"></datalist><div class="produto-ajuda">Ao salvar o orçamento, novos itens são cadastrados automaticamente na tabela de produtos.</div><div id="itens"></div><button id="btnAdicionarItem" class="btn verde addbtn" onclick="addItem()">+ Adicionar item</button>
 <div class="totais"><div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><div><span>Desconto (R$)</span><input id="desconto" type="number" min="0" step="0.01" value="0" oninput="calcular()" style="width:120px"></div><div class="total"><span>TOTAL</span><span id="total">R$ 0,00</span></div></div>
 <div class="separador separador-obs"></div><div class="campo obs"><label>Observações / condições</label><textarea id="obs"></textarea></div>
 <div class="acoes">
-<button class="btn verde" onclick="salvarOrcamento()">Salvar orçamento</button>
+<button id="btnSalvarOrcamento" class="btn verde" onclick="salvarOrcamento()">Salvar orçamento</button>
 <button class="btn cinza" onclick="abrirListaOrcamentos()">Orçamentos salvos</button>
 <button class="btn verde" onclick="window.print()">Criar / Salvar PDF</button>
 <button class="btn verde" onclick="enviarEmail()">Enviar PDF por e-mail</button><button class="btn verde" onclick="enviarWhatsAppPDF()">Enviar PDF por WhatsApp</button>
@@ -141,6 +153,8 @@ let orcamentoAtualId=null;
 let clienteAtualId=null;
 let clientesCarregados=[];
 let produtosCarregados=[];
+let orcamentoStatus='ABERTO';
+let usuarioEhAdmin=false;
 
 function valor(id){return document.getElementById(id).value||''}
 function setCampo(id,v){document.getElementById(id).value=v??''}
@@ -172,7 +186,7 @@ async function verificarLogin(){
   const logado=!!data.session;
   document.getElementById('loginTela').classList.toggle('login-oculto',logado);
   if(!logado)setTimeout(()=>document.getElementById('loginUsuario').focus(),50);
-  if(logado)carregarProdutos();
+  if(logado){carregarProdutos();await carregarPerfilAcesso();}
 }
 async function fazerLogin(){
   const u=document.getElementById('loginUsuario').value.trim();
@@ -192,6 +206,7 @@ async function fazerLogin(){
   document.getElementById('loginSenha').value='';
   mostrarStatus('Conectado ao banco online');
   carregarProdutos();
+  await carregarPerfilAcesso();
 }
 async function sairSistema(){
   await sb.auth.signOut();
@@ -208,6 +223,45 @@ async function exigirLogin(){
   return false;
 }
 
+const STATUS_FLUXO=['ABERTO','AGUARDANDO_APROVACAO','APROVADO','CONCLUIDO'];
+const STATUS_LABELS={ABERTO:'Aberto',AGUARDANDO_APROVACAO:'Aguardando Aprovação',APROVADO:'Aprovado',CONCLUIDO:'Concluído'};
+function labelStatus(s){return STATUS_LABELS[s]||s||'Aberto'}
+function statusClasse(s){return 'status-'+(s||'ABERTO')}
+async function carregarPerfilAcesso(){
+  try{const {data,error}=await sb.rpc('eh_admin');usuarioEhAdmin=!error&&data===true}catch(e){usuarioEhAdmin=false}
+  atualizarSituacaoTela();
+}
+function atualizarSituacaoTela(){
+  const badge=document.getElementById('situacaoBadge');if(!badge)return;
+  badge.textContent=labelStatus(orcamentoStatus);badge.className='status-badge '+statusClasse(orcamentoStatus);
+  const admin=document.getElementById('adminIndicador');if(admin)admin.textContent=usuarioEhAdmin?'Administrador':'';
+  const fluxo=document.getElementById('fluxoStatus');if(fluxo)fluxo.style.display=(usuarioEhAdmin&&!!orcamentoAtualId)?'flex':'none';
+  const idx=STATUS_FLUXO.indexOf(orcamentoStatus),voltar=document.getElementById('btnStatusVoltar'),avancar=document.getElementById('btnStatusAvancar');
+  if(voltar){voltar.disabled=idx<=0;voltar.textContent=idx===1?'← Voltar para Aberto':idx===2?'← Estornar aprovação':idx===3?'← Voltar para Aprovado':'← Voltar situação'}
+  if(avancar){avancar.disabled=idx<0||idx>=STATUS_FLUXO.length-1;avancar.textContent=idx===0?'Enviar para aprovação →':idx===1?'Aprovar →':idx===2?'Concluir →':'Concluído'}
+  aplicarBloqueioEdicao();
+}
+function aplicarBloqueioEdicao(){
+  const podeEditar=orcamentoStatus==='ABERTO';
+  ['cliente','telefone','endereco','cidade','estado','cep','email','documento','inscricao','condicoes','validade','desconto','obs'].forEach(id=>{const el=document.getElementById(id);if(!el)return;el.readOnly=!podeEditar;el.classList.toggle('campo-bloqueado',!podeEditar)});
+  document.querySelectorAll('.linha-item input').forEach(el=>{el.readOnly=!podeEditar;el.classList.toggle('campo-bloqueado',!podeEditar)});
+  document.querySelectorAll('.linha-item .remover').forEach(el=>el.disabled=!podeEditar);
+  ['btnAdicionarItem','btnSalvarOrcamento','btnSalvarCliente','btnClientesCadastrados'].forEach(id=>{const el=document.getElementById(id);if(el)el.disabled=!podeEditar});
+  const aviso=document.getElementById('avisoBloqueado');if(aviso)aviso.textContent=podeEditar?'':'Orçamento somente para consulta';
+}
+async function alterarSituacao(direcao){
+  if(!(await exigirLogin()))return;
+  if(!usuarioEhAdmin){alert('Somente administradores podem alterar a situação do orçamento.');return}
+  if(!orcamentoAtualId){alert('Salve o orçamento antes de alterar a situação.');return}
+  const atual=STATUS_FLUXO.indexOf(orcamentoStatus),novoIdx=atual+direcao;if(atual<0||novoIdx<0||novoIdx>=STATUS_FLUXO.length)return;
+  if(orcamentoStatus==='ABERTO'&&direcao===1){const ok=await salvarOrcamento();if(!ok)return}
+  const novoStatus=STATUS_FLUXO[novoIdx],anterior=orcamentoStatus;
+  if(!confirm('Alterar a situação de "'+labelStatus(anterior)+'" para "'+labelStatus(novoStatus)+'"?'))return;
+  const {data,error}=await sb.from('orcamentos').update({status:novoStatus}).eq('id',orcamentoAtualId).select('status').single();
+  if(error){console.error(error);alert('Não foi possível alterar a situação: '+(error.message||error));return}
+  orcamentoStatus=data.status||novoStatus;atualizarSituacaoTela();mostrarStatus('Situação alterada para '+labelStatus(orcamentoStatus));
+  if(document.getElementById('modalOrcamentos').classList.contains('aberto'))await renderizarListaOrcamentos();
+}
 async function usuarioAtual(){
   const {data}=await sb.auth.getUser();
   return data&&data.user?data.user:null;
@@ -309,6 +363,7 @@ function dadosClienteFormulario(){
 }
 async function salvarClienteAtual(silencioso=false){
   if(!(await exigirLogin()))return null;
+  if(orcamentoStatus!=='ABERTO'){if(!silencioso)alert('Este orçamento não está Aberto e não permite alterações.');return null;}
   const p=dadosClienteFormulario();
   if(!p.cliente){
     if(!silencioso)alert('Informe o nome do cliente.');
@@ -377,6 +432,7 @@ function fecharClientes(){
 }
 function fecharModalClientesFundo(e){if(e.target.id==='modalClientes')fecharClientes()}
 function selecionarCliente(id){
+  if(orcamentoStatus!=='ABERTO'){alert('Este orçamento não está Aberto e não permite alterações.');return}
   const c=clientesCarregados.find(x=>x.id===id);if(!c)return;
   clienteAtualId=c.id;
   setCampo('cliente',c.cliente);setCampo('telefone',c.telefone);setCampo('endereco',c.endereco);
@@ -401,7 +457,8 @@ function dataTelaDeSql(s){
   return m?`${m[3]}/${m[2]}/${m[1]}`:s;
 }
 async function salvarOrcamento(){
-  if(!(await exigirLogin()))return;
+  if(!(await exigirLogin()))return false;
+  if(orcamentoStatus!=='ABERTO'){alert('Somente orçamentos na situação Aberto podem ser alterados.');return false}
   calcular();mostrarStatus('Salvando no banco...');
   const eraNovo=!orcamentoAtualId;
   try{
@@ -451,10 +508,13 @@ async function salvarOrcamento(){
     });
     mostrarStatus('Orçamento salvo no Supabase');
     if(document.getElementById('modalOrcamentos').classList.contains('aberto'))await renderizarListaOrcamentos();
+    atualizarSituacaoTela();
+    return true;
   }catch(e){
     console.error(e);
     mostrarStatus('Erro ao salvar');
     alert('Não foi possível salvar o orçamento no banco: '+(e.message||e));
+    return false;
   }
 }
 async function renderizarListaOrcamentos(){
@@ -462,7 +522,7 @@ async function renderizarListaOrcamentos(){
   box.innerHTML='<div class="vazio">Carregando orçamentos...</div>';
   if(!(await exigirLogin()))return;
   const {data,error}=await sb.from('vw_orcamentos_totais')
-    .select('id,numero,cliente,data_orcamento,subtotal,desconto,total,alterado_em')
+    .select('id,numero,cliente,data_orcamento,subtotal,desconto,total,alterado_em,status')
     .order('alterado_em',{ascending:false}).limit(300);
   if(error){
     console.error(error);
@@ -475,18 +535,19 @@ async function renderizarListaOrcamentos(){
     return;
   }
   const lista=data||[];
-  salvarCache(lista.map(o=>({id:o.id,numero:o.numero,cliente:o.cliente,data:dataTelaDeSql(o.data_orcamento),total:moeda(o.total),atualizadoEm:o.alterado_em})));
+  salvarCache(lista.map(o=>({id:o.id,numero:o.numero,cliente:o.cliente,data:dataTelaDeSql(o.data_orcamento),total:moeda(o.total),status:o.status,atualizadoEm:o.alterado_em})));
   if(!lista.length){box.innerHTML='<div class="vazio">Nenhum orçamento salvo ainda.</div>';return}
   box.innerHTML=lista.map(o=>`<div class="orc-card">
     <div class="orc-info">
       <strong>${escapar(o.numero||'Sem número')} — ${escapar(o.cliente||'Cliente não informado')}</strong>
       <div class="orc-meta">Data: ${escapar(dataTelaDeSql(o.data_orcamento))} • Total: ${escapar(moeda(o.total))}</div>
+      <div class="orc-meta">Situação: <span class="status-badge ${statusClasse(o.status)}">${escapar(labelStatus(o.status))}</span></div>
       <div class="orc-meta">Última alteração: ${o.alterado_em?new Date(o.alterado_em).toLocaleString('pt-BR'):''}</div>
     </div>
     <div class="orc-botoes">
-      <button class="btn verde btn-peq" onclick="abrirOrcamento('${o.id}')">Abrir / editar</button>
+      <button class="btn verde btn-peq" onclick="abrirOrcamento('${o.id}')">${o.status==='ABERTO'?'Abrir / editar':'Visualizar'}</button>
       <button class="btn cinza btn-peq" onclick="abrirHistorico('${o.id}','${escapar(o.numero||'')}')">Histórico</button>
-      <button class="btn vermelho btn-peq" onclick="excluirOrcamento('${o.id}')">Excluir</button>
+      ${o.status==='ABERTO'?`<button class="btn vermelho btn-peq" onclick="excluirOrcamento('${o.id}')">Excluir</button>`:''}
     </div>
   </div>`).join('');
 }
@@ -516,6 +577,7 @@ async function abrirOrcamento(id){
   }
 
   orcamentoAtualId=o.id;
+  orcamentoStatus=o.status||'ABERTO';
 
   document.getElementById('numero').textContent=o.numero||'';
   document.getElementById('data').textContent=dataTelaDeSql(o.data_orcamento);
@@ -545,7 +607,7 @@ async function abrirOrcamento(id){
         cli=achados[0];
         clienteAtualId=cli.id;
         // Repara o vínculo do orçamento antigo para as próximas aberturas.
-        await sb.from('orcamentos').update({cliente_id:cli.id}).eq('id',o.id);
+        if(orcamentoStatus==='ABERTO')await sb.from('orcamentos').update({cliente_id:cli.id}).eq('id',o.id);
       }
     }
   }
@@ -576,12 +638,16 @@ async function abrirOrcamento(id){
 
   document.getElementById('itens').innerHTML='';
   seq=0;
+  const statusCarregado=orcamentoStatus;
+  orcamentoStatus='ABERTO';
   (itens&&itens.length?itens:[{quantidade:1,descricao:'',valor_unitario:''}])
     .forEach(i=>addItem(i.quantidade,i.descricao,i.valor_unitario));
+  orcamentoStatus=statusCarregado;
 
   calcular();
+  atualizarSituacaoTela();
 
-  await registrarHistorico(o.id,'ABERTO',{
+  await registrarHistorico(o.id,'ORÇAMENTO ABERTO',{
     numero:o.numero,
     cliente:valor('cliente')
   });
@@ -591,7 +657,7 @@ async function abrirOrcamento(id){
   if(!valor('cliente')){
     mostrarStatus('Orçamento aberto — cliente não vinculado');
   }else{
-    mostrarStatus('Orçamento aberto para edição');
+    mostrarStatus(orcamentoStatus==='ABERTO'?'Orçamento aberto para edição':'Orçamento aberto para consulta');
   }
 
   window.scrollTo({top:0,behavior:'smooth'});
@@ -599,6 +665,8 @@ async function abrirOrcamento(id){
 
 async function excluirOrcamento(id){
   if(!(await exigirLogin()))return;
+  const {data:orc}=await sb.from('orcamentos').select('status').eq('id',id).maybeSingle();
+  if(orc&&orc.status!=='ABERTO'){alert('Somente orçamentos em Aberto podem ser excluídos.');return}
   if(!confirm('Excluir este orçamento do banco compartilhado?'))return;
   const {error}=await sb.from('orcamentos').delete().eq('id',id);
   if(error){alert('Não foi possível excluir o orçamento.');return}
@@ -624,7 +692,7 @@ async function importarBackup(event){
   event.target.value='';
 }
 
-function addItem(q=1,d='',v=''){seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" list="produtosLista" onchange="aplicarProdutoSelecionado(this)"><input type="number" min="0" step="0.01" value="${v}" oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular()}
+function addItem(q=1,d='',v=''){if(orcamentoStatus!=='ABERTO')return;seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" list="produtosLista" onchange="aplicarProdutoSelecionado(this)"><input type="number" min="0" step="0.01" value="${v}" oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular();aplicarBloqueioEdicao()}
 function calcular(){let s=0;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input'),x=(+i[0].value||0)*(+i[2].value||0);r.querySelector('.subtotal').textContent=moeda(x);s+=x});const desc=+document.getElementById('desconto').value||0;document.getElementById('subtotal').textContent=moeda(s);document.getElementById('total').textContent=moeda(Math.max(0,s-desc))}
 function texto(){let t=`ORÇAMENTO - VIVEIRO GUARAPUAVA\nNº ${numero.textContent}\nCliente: ${cliente.value}\nTelefone: ${telefone.value}\nEndereço: ${endereco.value}\nCidade: ${cidade.value} - ${estado.value}\nCEP: ${cep.value}\nCNPJ/CPF: ${documento.value}\nInscrição Estadual: ${inscricao.value}\nCondições: ${condicoes.value}\n\nITENS:\n`;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input');t+=`${i[0].value} x ${i[1].value} - ${moeda(i[2].value)}\n`});t+=`\nTOTAL: ${total.textContent}\nValidade: ${validade.value}\n\n${obs.value}`;return t}
 
@@ -652,6 +720,7 @@ async function gerarPDF(){
   doc.setTextColor(40,40,40);doc.setFont('helvetica','normal');doc.setFontSize(9);
   doc.text('Nº '+numero.textContent,78,24);
   doc.text('Data: '+data.textContent,78,29);
+  doc.text('Situação: '+labelStatus(orcamentoStatus),78,34);
   doc.setFont('helvetica','bold');doc.text('Viveiro Guarapuava',130,15);
   doc.setFont('helvetica','normal');doc.setFontSize(7.8);
   doc.text(['R. Euríco Lustosa Siqueira, 727 - Industrial','Guarapuava - PR, 85045-460','Telefone: (42) 99117-1982','Produtor Rural - José António de Assis','CADPRO 95214791-99'],130,20);
@@ -784,9 +853,9 @@ async function enviarWhatsAppPDF(){
   setTimeout(()=>{window.open('https://wa.me/?text='+texto,'_blank')},500);
 }
 
-function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;clienteAtualId=null;cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();mostrarStatus('Novo orçamento')}
+function novo(){if(!confirm('Limpar este orçamento e iniciar outro?'))return;orcamentoAtualId=null;clienteAtualId=null;orcamentoStatus='ABERTO';cliente.value=email.value=telefone.value=endereco.value=cidade.value=estado.value=cep.value=documento.value=inscricao.value=condicoes.value=obs.value='';validade.value='7 dias';desconto.value=0;itens.innerHTML='';seq=0;iniciar();addItem();atualizarSituacaoTela();mostrarStatus('Novo orçamento')}
 function iniciar(){const d=new Date();data.textContent=d.toLocaleDateString('pt-BR');numero.textContent=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')+String(d.getSeconds()).padStart(2,'0')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){fecharListaOrcamentos();fecharClientes();fecharHistorico()}});
 verificarLogin();
-iniciar();addItem();addItem();
+iniciar();addItem();addItem();atualizarSituacaoTela();
 </script></body></html>
