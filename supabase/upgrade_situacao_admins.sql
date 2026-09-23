@@ -13,7 +13,9 @@ create table if not exists public.admins (
 );
 
 insert into public.admins (usuario)
-values ('tonho')
+values
+  ('tonho'),
+  ('tono')
 on conflict (usuario) do nothing;
 
 alter table public.admins enable row level security;
