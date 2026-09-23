@@ -210,10 +210,23 @@ execute function public.validar_exclusao_orcamento();
 -- Também ficam travados quando o orçamento sair de ABERTO.
 -- ============================================================
 
-drop policy if exists "consultar itens" on public.orcamento_itens;
-drop policy if exists "criar itens" on public.orcamento_itens;
-drop policy if exists "alterar itens" on public.orcamento_itens;
-drop policy if exists "excluir itens" on public.orcamento_itens;
+-- Remove políticas antigas da tabela de itens. Isso é importante porque
+-- políticas RLS permissivas são combinadas com OR; uma política antiga using(true)
+-- poderia liberar edição de itens de um orçamento já aprovado.
+do $
+declare
+  p record;
+begin
+  for p in
+    select policyname
+    from pg_policies
+    where schemaname='public'
+      and tablename='orcamento_itens'
+  loop
+    execute format('drop policy if exists %I on public.orcamento_itens',p.policyname);
+  end loop;
+end
+$;
 
 create policy "consultar itens"
 on public.orcamento_itens
