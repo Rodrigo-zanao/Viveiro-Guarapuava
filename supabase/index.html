@@ -71,7 +71,7 @@ html,body{background:#fff!important;font-size:12px!important}
 <div class="bloco-dados">
 <div class="grid grid-cliente">
 <div class="campo"><label>Cliente</label><input id="cliente"></div>
-<div class="campo"><label>Telefone</label><input id="telefone"></div>
+<div class="campo"><label>Telefone</label><input id="telefone" inputmode="tel" maxlength="15" oninput="mascaraTelefone(this)"></div>
 </div>
 <div class="grid grid-endereco" style="margin-top:10px">
 <div class="campo"><label>Endereço</label><input id="endereco"></div>
@@ -168,7 +168,45 @@ let orcamentoStatus='ABERTO';
 let usuarioEhAdmin=false;
 
 function valor(id){return document.getElementById(id).value||''}
-function setCampo(id,v){document.getElementById(id).value=v??''}
+function numeroBR(v){
+  if(typeof v==='number')return Number.isFinite(v)?v:0;
+  let s=String(v??'').trim().replace(/R\$\s?/g,'').replace(/\s/g,'');
+  if(!s)return 0;
+  if(s.includes(',')){
+    s=s.replace(/\./g,'').replace(',','.');
+  }
+  const n=Number(s);
+  return Number.isFinite(n)?n:0;
+}
+function decimalBR(v){
+  return numeroBR(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function normalizarValorItem(el){
+  if(!el)return;
+  if(String(el.value||'').trim()===''){el.value='';calcular();return}
+  el.value=decimalBR(el.value);
+  calcular();
+}
+function mascaraTelefone(el){
+  if(!el)return;
+  let n=String(el.value||'').replace(/\D/g,'').slice(0,11);
+  if(n.length<=2){
+    el.value=n.length?'('+n:'';
+  }else if(n.length<=6){
+    el.value='('+n.slice(0,2)+') '+n.slice(2);
+  }else if(n.length<=10){
+    el.value='('+n.slice(0,2)+') '+n.slice(2,6)+'-'+n.slice(6);
+  }else{
+    el.value='('+n.slice(0,2)+') '+n.slice(2,7)+'-'+n.slice(7);
+  }
+}
+function telefoneFormatado(v){
+  const fake={value:String(v??'')};mascaraTelefone(fake);return fake.value;
+}
+function setCampo(id,v){
+  const el=document.getElementById(id);if(!el)return;
+  el.value=id==='telefone'?telefoneFormatado(v):(v??'');
+}
 function escapar(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function mostrarStatus(msg){
   const s=document.getElementById('statusSalvo');if(!s)return;
@@ -485,7 +523,7 @@ function aplicarProdutoSelecionado(input){
   const row=input.closest('.linha-item');
   const campos=row.querySelectorAll('input');
   if(campos[2] && (!campos[2].value || Number(campos[2].value)===0)){
-    campos[2].value=Number(p.valor_unitario||0);
+    campos[2].value=decimalBR(p.valor_unitario||0);
     calcular();
   }
 }
@@ -631,7 +669,7 @@ function selecionarCliente(id){
 function coletarItens(){
   return [...document.querySelectorAll('.linha-item')].map((r,idx)=>{
     const i=r.querySelectorAll('input');
-    return {ordem:idx+1,qtd:Number(i[0].value||0),descricao:(i[1].value||'').trim(),valor:Number(i[2].value||0)};
+    return {ordem:idx+1,qtd:Number(i[0].value||0),descricao:(i[1].value||'').trim(),valor:numeroBR(i[2].value)};
   }).filter(x=>x.descricao||x.valor>0);
 }
 function dataSqlDaTela(){
@@ -932,9 +970,9 @@ async function importarBackup(event){
   event.target.value='';
 }
 
-function addItem(q=1,d='',v=''){if(orcamentoStatus!=='ABERTO')return;seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" list="produtosLista" onchange="aplicarProdutoSelecionado(this)"><input type="number" min="0" step="0.01" value="${v}" oninput="calcular()"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular();aplicarBloqueioEdicao()}
-function calcular(){let s=0;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input'),x=(+i[0].value||0)*(+i[2].value||0);r.querySelector('.subtotal').textContent=moeda(x);s+=x});const desc=+document.getElementById('desconto').value||0;document.getElementById('subtotal').textContent=moeda(s);document.getElementById('total').textContent=moeda(Math.max(0,s-desc))}
-function texto(){let t=`ORÇAMENTO - VIVEIRO GUARAPUAVA\nNº ${numero.textContent}\nCliente: ${cliente.value}\nTelefone: ${telefone.value}\nEndereço: ${endereco.value}\nCidade: ${cidade.value} - ${estado.value}\nCEP: ${cep.value}\nCNPJ/CPF: ${documento.value}\nInscrição Estadual: ${inscricao.value}\nCondições: ${condicoes.value}\n\nITENS:\n`;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input');t+=`${i[0].value} x ${i[1].value} - ${moeda(i[2].value)}\n`});t+=`\nTOTAL: ${total.textContent}\nValidade: ${validade.value}\n\n${obs.value}`;return t}
+function addItem(q=1,d='',v=''){if(orcamentoStatus!=='ABERTO')return;seq++;const el=document.createElement('div');el.className='linha-item';el.innerHTML=`<input type="number" min="0" step="1" value="${q}" oninput="calcular()" title="Quantidade"><input value="${d}" list="produtosLista" onchange="aplicarProdutoSelecionado(this)"><input type="text" inputmode="decimal" value="${decimalBR(v)}" oninput="calcular()" onblur="normalizarValorItem(this)" onfocus="this.select()" title="Valor unitário"><div class="subtotal">R$ 0,00</div><button class="btn vermelho remover" onclick="this.parentElement.remove();calcular()">×</button>`;document.getElementById('itens').appendChild(el);calcular();aplicarBloqueioEdicao()}
+function calcular(){let s=0;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input'),x=(Number(i[0].value)||0)*numeroBR(i[2].value);r.querySelector('.subtotal').textContent=moeda(x);s+=x});const desc=numeroBR(document.getElementById('desconto').value);document.getElementById('subtotal').textContent=moeda(s);document.getElementById('total').textContent=moeda(Math.max(0,s-desc))}
+function texto(){let t=`ORÇAMENTO - VIVEIRO GUARAPUAVA\nNº ${numero.textContent}\nCliente: ${cliente.value}\nTelefone: ${telefone.value}\nEndereço: ${endereco.value}\nCidade: ${cidade.value} - ${estado.value}\nCEP: ${cep.value}\nCNPJ/CPF: ${documento.value}\nInscrição Estadual: ${inscricao.value}\nCondições: ${condicoes.value}\n\nITENS:\n`;document.querySelectorAll('.linha-item').forEach(r=>{const i=r.querySelectorAll('input');t+=`${i[0].value} x ${i[1].value} - ${moeda(numeroBR(i[2].value))}\n`});t+=`\nTOTAL: ${total.textContent}\nValidade: ${validade.value}\n\n${obs.value}`;return t}
 
 async function imagemParaDataURL(src){
   const img=await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=src+'?v='+Date.now()});
@@ -988,7 +1026,7 @@ async function gerarPDF(){
   const linhas=[];
   document.querySelectorAll('.linha-item').forEach(r=>{
     const i=r.querySelectorAll('input');
-    const qtd=Number(i[0].value||0), descricao=i[1].value||'', unit=Number(i[2].value||0);
+    const qtd=Number(i[0].value||0), descricao=i[1].value||'', unit=numeroBR(i[2].value);
     if(qtd || descricao || unit) linhas.push([qtd,descricao,moeda(unit),moeda(qtd*unit)]);
   });
   if(!linhas.length) linhas.push(['','','','']);
