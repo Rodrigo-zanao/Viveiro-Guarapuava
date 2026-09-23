@@ -207,7 +207,17 @@ async function fazerLogin(){
   const email=u.includes('@')?u:(u+'@viveiro.local');
   const {error}=await sb.auth.signInWithPassword({email,password:senha});
   if(error){
-    erro.textContent='Usuário ou senha inválidos.';
+    console.error('Erro de login Supabase:',error);
+    const msg=String(error.message||'').toLowerCase();
+    if(msg.includes('invalid login credentials')){
+      erro.textContent='Usuário ou senha inválidos.';
+    }else if(msg.includes('weak password')){
+      erro.textContent='A senha foi recusada por ser considerada fraca.';
+    }else if(msg.includes('email not confirmed')){
+      erro.textContent='Usuário ainda não confirmado no Supabase.';
+    }else{
+      erro.textContent='Erro ao entrar: '+(error.message||'falha de autenticação');
+    }
     document.getElementById('loginSenha').value='';
     document.getElementById('loginSenha').focus();
     return;
